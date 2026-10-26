@@ -3,248 +3,376 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simple Past Tense · E-Module Interaktif Kelas XI</title>
-<meta name="description" content="E-module interaktif Simple Past Tense untuk kelas XI SMA — materi, latihan, kuis, dan tugas menulis.">
+<title>E-Module Interaktif · Simple Past Tense · Kelas XI</title>
+<meta name="description" content="Modul pembelajaran berbasis online interaktif: Simple Past Tense untuk kelas XI. Materi, multimedia, latihan, forum diskusi, kuis, dan tugas menulis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#6366f1; --primary-dark:#4f46e5; --violet:#8b5cf6; --pink:#ec4899;
-  --cyan:#06b6d4; --ok:#10b981; --err:#ef4444; --warn:#f59e0b;
-  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --line:#e2e8f0;
-  --bg:#f7f8fc; --card:#fff; --radius:20px;
-  --shadow:0 4px 24px -10px rgba(15,23,42,.16);
+  --primary:#4f46e5; --primary-2:#6366f1; --primary-soft:#eef2ff;
+  --accent:#ec4899; --accent-soft:#fdf2f8;
+  --ink:#0f172a; --ink2:#334155; --muted:#64748b; --line:#e2e8f0;
+  --bg:#f6f7fb; --card:#fff;
+  --ok:#059669; --ok-soft:#ecfdf5;
+  --err:#dc2626; --err-soft:#fef2f2;
+  --warn:#d97706; --warn-soft:#fffbeb;
+  --r:18px; --shadow:0 4px 22px -12px rgba(15,23,42,.22);
 }
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.65;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-#progress{position:fixed;top:0;left:0;height:4px;width:0;
-  background:linear-gradient(90deg,var(--primary),var(--violet),var(--pink));
-  z-index:200;transition:width .08s linear}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;
+  background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .1s linear}
 
-/* ---------- NAV ---------- */
-.nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.84);
+/* ================= NAV ================= */
+.nav{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.9);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-inner{max-width:1080px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:14px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;white-space:nowrap;letter-spacing:-.01em}
-.brand .dot{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:#fff;
-  font-size:.72rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--pink));
-  box-shadow:0 6px 14px -6px rgba(99,102,241,.9)}
-.nav-links{display:flex;gap:5px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+.nav-inner{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:.9rem;white-space:nowrap}
+.brand .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;
+  font-size:.7rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent))}
+.brand .txt{display:none}
+@media(min-width:700px){.brand .txt{display:inline}}
+.nav-links{display:flex;gap:3px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-links a{padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:700;
+.nav-links a{padding:8px 13px;border-radius:999px;font-size:.82rem;font-weight:700;
   color:var(--muted);text-decoration:none;white-space:nowrap;transition:.2s}
-.nav-links a:hover{background:#eef2ff;color:var(--primary-dark)}
+.nav-links a:hover{background:var(--primary-soft);color:var(--primary)}
 .nav-links a.active{background:var(--ink);color:#fff}
 
-/* ---------- LAYOUT ---------- */
-section{max-width:1080px;margin:0 auto;padding:56px 20px}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:800;
+/* ================= LAYOUT ================= */
+section{max-width:1100px;margin:0 auto;padding:52px 18px}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:800;
   letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
-  background:#eef2ff;padding:6px 14px;border-radius:999px;margin-bottom:14px}
-h2.sec{font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.03em;line-height:1.2;margin-bottom:10px}
-.sec-desc{color:var(--muted);max-width:660px;margin-bottom:28px;font-size:.97rem}
-
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--primary-soft);padding:6px 14px;border-radius:999px;margin-bottom:13px}
+h2.sec{font-size:clamp(1.5rem,3.6vw,2rem);letter-spacing:-.03em;line-height:1.22;margin-bottom:9px}
+.sec-desc{color:var(--muted);max-width:680px;margin-bottom:26px;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
   padding:24px;box-shadow:var(--shadow)}
-.card + .card{margin-top:16px}
+.card+.card{margin-top:15px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:15px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
+h3.ch{font-size:1.08rem;font-weight:800;letter-spacing:-.02em;margin-bottom:5px}
+p.cs{color:var(--muted);font-size:.88rem;margin-bottom:16px}
 
-/* ---------- HERO ---------- */
-.hero-card{
-  background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 42%,#ec4899 100%);
-  border-radius:28px;padding:clamp(32px,6vw,58px);color:#fff;position:relative;overflow:hidden;
-  box-shadow:0 30px 60px -30px rgba(99,102,241,.75)}
-.hero-card::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;
-  background:rgba(255,255,255,.13);top:-140px;right:-90px}
-.hero-card::after{content:'';position:absolute;width:230px;height:230px;border-radius:50%;
-  background:rgba(255,255,255,.09);bottom:-120px;left:-70px}
-.hero-card > *{position:relative;z-index:2}
-.pill{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.06em;
-  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);
-  padding:6px 15px;border-radius:999px;margin-bottom:18px;backdrop-filter:blur(4px)}
-.hero-card h1{font-size:clamp(1.8rem,5vw,2.9rem);line-height:1.14;letter-spacing:-.035em;
-  font-weight:800;margin-bottom:16px;max-width:760px}
-.hero-card p.lead{font-size:clamp(.95rem,2vw,1.06rem);opacity:.94;max-width:620px;margin-bottom:26px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-
-/* ---------- BUTTONS ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:12px 24px;border-radius:999px;font-weight:700;font-size:.9rem;
-  border:none;cursor:pointer;text-decoration:none;transition:.22s;font-family:inherit}
-.btn-light{background:#fff;color:var(--primary-dark)}
-.btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.55)}
-.btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+/* ================= BUTTONS ================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 22px;border-radius:999px;font-weight:700;font-size:.87rem;border:none;
+  cursor:pointer;text-decoration:none;transition:.2s;font-family:inherit}
+.btn-light{background:#fff;color:var(--primary)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 12px 22px -12px rgba(0,0,0,.5)}
+.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
 .btn-ghost:hover{background:rgba(255,255,255,.28)}
 .btn-primary{background:var(--primary);color:#fff}
-.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
-.btn-outline{background:#fff;color:var(--ink-2);border:1.5px solid var(--line)}
+.btn-primary:hover{background:#4338ca;transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--ink2);border:1.5px solid var(--line)}
 .btn-outline:hover{border-color:var(--primary);color:var(--primary)}
-.btn-sm{padding:9px 18px;font-size:.83rem}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+.btn-sm{padding:8px 17px;font-size:.81rem}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 
-/* ---------- GRIDS ---------- */
-.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+/* ================= HERO ================= */
+.hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 48%,#ec4899 100%);
+  border-radius:26px;padding:clamp(30px,5.5vw,54px);color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 28px 55px -30px rgba(79,70,229,.8)}
+.hero::before{content:'';position:absolute;width:330px;height:330px;border-radius:50%;
+  background:rgba(255,255,255,.12);top:-140px;right:-90px}
+.hero::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;
+  background:rgba(255,255,255,.08);bottom:-110px;left:-60px}
+.hero>*{position:relative;z-index:2}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.36);
+  padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:clamp(1.75rem,4.6vw,2.7rem);line-height:1.14;letter-spacing:-.035em;
+  font-weight:900;margin-bottom:14px;max-width:780px}
+.hero p.lead{font-size:clamp(.92rem,1.9vw,1.02rem);opacity:.95;max-width:640px;margin-bottom:24px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.meta-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px;padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.22)}
+.meta-chips span{font-size:.74rem;font-weight:600;background:rgba(255,255,255,.14);
+  padding:6px 12px;border-radius:8px}
 
-/* ---------- GOAL CARD ---------- */
-.goal{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;
+/* ================= PETA MODUL ================= */
+.peta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}
+.peta a{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:16px;text-decoration:none;color:inherit;transition:.22s;box-shadow:var(--shadow)}
+.peta a:hover{transform:translateY(-3px);border-color:#c7d2fe}
+.peta .n{width:26px;height:26px;border-radius:8px;background:var(--primary-soft);color:var(--primary);
+  display:grid;place-items:center;font-size:.75rem;font-weight:900;margin-bottom:9px}
+.peta .t{font-size:.87rem;font-weight:800;letter-spacing:-.01em}
+.peta .s{font-size:.75rem;color:var(--muted);margin-top:2px}
+
+/* ================= TUJUAN ================= */
+.goal{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;
   box-shadow:var(--shadow);transition:.25s}
 .goal:hover{transform:translateY(-4px);border-color:#c7d2fe}
-.goal .num{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
-  font-weight:800;color:#fff;font-size:.9rem;margin-bottom:14px}
-.goal:nth-child(1) .num{background:linear-gradient(135deg,#6366f1,#818cf8)}
-.goal:nth-child(2) .num{background:linear-gradient(135deg,#06b6d4,#22d3ee)}
-.goal:nth-child(3) .num{background:linear-gradient(135deg,#ec4899,#f472b6)}
-.goal h3{font-size:1rem;margin-bottom:6px;letter-spacing:-.01em}
-.goal p{font-size:.87rem;color:var(--muted)}
+.goal .num{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  font-weight:900;color:#fff;font-size:.85rem;margin-bottom:12px}
+.goal:nth-child(1) .num{background:linear-gradient(135deg,#4f46e5,#818cf8)}
+.goal:nth-child(2) .num{background:linear-gradient(135deg,#0891b2,#22d3ee)}
+.goal:nth-child(3) .num{background:linear-gradient(135deg,#db2777,#f472b6)}
+.goal h4{font-size:.95rem;margin-bottom:5px}
+.goal p{font-size:.85rem;color:var(--muted)}
 
-/* ---------- TABS ---------- */
-.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none}
+/* ================= TABS ================= */
+.tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
-  color:var(--muted);font-weight:700;font-size:.84rem;cursor:pointer;white-space:nowrap;
+.tab{padding:9px 17px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  color:var(--muted);font-weight:700;font-size:.82rem;cursor:pointer;white-space:nowrap;
   font-family:inherit;transition:.2s}
 .tab:hover{border-color:#c7d2fe;color:var(--primary)}
 .tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 .panel{display:none}
 .panel.active{display:block;animation:fadeUp .35s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 
-/* ---------- MATERI CONTENT ---------- */
-.materi-h{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
-.materi-sub{color:var(--muted);font-size:.9rem;margin-bottom:18px}
-.formula{background:#0f172a;color:#e2e8f0;border-radius:14px;padding:14px 18px;
-  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.87rem;
-  overflow-x:auto;margin:12px 0;line-height:1.9;white-space:nowrap}
-.formula b{color:#a5b4fc}
-.formula i{color:#f9a8d4;font-style:normal}
-.formula em{color:#67e8f9;font-style:normal}
-.note{border-left:4px solid var(--primary);background:#eef2ff;border-radius:0 12px 12px 0;
-  padding:14px 18px;font-size:.88rem;color:var(--ink-2);margin:14px 0}
-.note.warn{border-color:var(--warn);background:#fffbeb}
-.note.ok{border-color:var(--ok);background:#ecfdf5}
-ul.tick{list-style:none;display:grid;gap:9px;margin:12px 0}
-ul.tick li{position:relative;padding-left:28px;font-size:.9rem;color:var(--ink-2)}
-ul.tick li::before{content:'✓';position:absolute;left:0;top:0;width:19px;height:19px;
-  border-radius:6px;background:#dcfce7;color:#15803d;font-size:.7rem;font-weight:800;
-  display:grid;place-items:center;margin-top:3px}
+/* ================= MATERI ================= */
+.formula{background:#0f172a;color:#e2e8f0;border-radius:13px;padding:13px 17px;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.85rem;
+  overflow-x:auto;margin:11px 0;line-height:1.95;white-space:nowrap}
+.formula b{color:#a5b4fc}.formula i{color:#f9a8d4;font-style:normal}.formula em{color:#67e8f9;font-style:normal}
+.note{border-left:4px solid var(--primary);background:var(--primary-soft);border-radius:0 12px 12px 0;
+  padding:13px 17px;font-size:.86rem;color:var(--ink2);margin:14px 0}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note.ok{border-color:var(--ok);background:var(--ok-soft)}
+ul.tick{list-style:none;display:grid;gap:8px;margin:11px 0}
+ul.tick li{position:relative;padding-left:27px;font-size:.88rem;color:var(--ink2)}
+ul.tick li::before{content:'✓';position:absolute;left:0;top:3px;width:18px;height:18px;
+  border-radius:5px;background:#dcfce7;color:#15803d;font-size:.66rem;font-weight:900;
+  display:grid;place-items:center}
 
-/* ---------- VERB EXPLORER ---------- */
-.verb-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.search{flex:1;min-width:180px;padding:11px 16px;border-radius:12px;border:1.5px solid var(--line);
-  font-family:inherit;font-size:.88rem;outline:none;transition:.2s;background:#fff}
-.search:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(99,102,241,.12)}
-.chip-row{display:flex;gap:7px;flex-wrap:wrap}
-.chip{padding:8px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
-  font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;transition:.2s}
+/* verb explorer */
+.verb-tools{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}
+.search{flex:1;min-width:170px;padding:10px 15px;border-radius:11px;border:1.5px solid var(--line);
+  font-family:inherit;font-size:.86rem;outline:none;transition:.2s;background:#fff}
+.search:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+.chip-row{display:flex;gap:6px;flex-wrap:wrap}
+.chip{padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  font-size:.78rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;transition:.2s}
 .chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-.verb-scroll{max-height:380px;overflow-y:auto;border-radius:14px;border:1px solid var(--line)}
-.verb-table{width:100%;border-collapse:collapse;font-size:.87rem}
-.verb-table th{position:sticky;top:0;background:#f1f5f9;text-align:left;padding:11px 14px;
-  font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);z-index:2}
-.verb-table td{padding:10px 14px;border-top:1px solid var(--line)}
-.verb-table tr:hover td{background:#fafbff}
-.tag{font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.03em}
+.verb-scroll{max-height:360px;overflow-y:auto;border-radius:13px;border:1px solid var(--line)}
+table.vt{width:100%;border-collapse:collapse;font-size:.85rem}
+table.vt th{position:sticky;top:0;background:#f1f5f9;text-align:left;padding:10px 13px;
+  font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);z-index:2}
+table.vt td{padding:9px 13px;border-top:1px solid var(--line)}
+table.vt tr:hover td{background:#fafbff}
+.tag{font-size:.66rem;font-weight:900;padding:3px 8px;border-radius:999px}
 .tag.reg{background:#dbeafe;color:#1d4ed8}
 .tag.irr{background:#fce7f3;color:#be185d}
 
-/* ---------- LATIHAN ---------- */
-.arr-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
-  margin-bottom:14px;box-shadow:var(--shadow)}
-.arr-q{font-size:.86rem;font-weight:700;color:var(--muted);margin-bottom:12px}
-.pool,.answer-box{display:flex;flex-wrap:wrap;gap:8px;min-height:54px;padding:12px;
-  border-radius:14px;transition:.2s}
-.pool{background:#f1f5f9;margin-bottom:12px}
-.answer-box{background:#fafbff;border:2px dashed #cbd5e1}
-.answer-box.filled{border-color:#a5b4fc}
-.answer-box.correct{background:#ecfdf5;border-color:var(--ok);border-style:solid}
-.answer-box.wrong{background:#fef2f2;border-color:var(--err);border-style:solid}
-.word{padding:8px 15px;border-radius:11px;background:#fff;border:1.5px solid var(--line);
-  font-size:.87rem;font-weight:700;color:var(--ink-2);cursor:pointer;font-family:inherit;
-  transition:.18s;user-select:none}
-.word:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary)}
-.answer-box .word{background:var(--primary);color:#fff;border-color:var(--primary)}
-.answer-box .word:hover{background:var(--err);border-color:var(--err);color:#fff}
-.arr-feedback{font-size:.85rem;font-weight:700;margin-top:11px;display:none}
-.arr-feedback.show{display:block}
-.arr-feedback.good{color:#15803d}
-.arr-feedback.bad{color:var(--err)}
+/* ================= VIDEO SIMULASI ================= */
+.player{background:#0b1220;border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -24px rgba(2,6,23,.7)}
+.screen{aspect-ratio:16/9;position:relative;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 20%,#1e293b,#0b1220 70%);padding:clamp(18px,4vw,40px);text-align:center}
+.slide{color:#fff;animation:fadeUp .4s ease;max-width:640px}
+.slide .st{font-size:clamp(.62rem,.9vw,.72rem);letter-spacing:.16em;text-transform:uppercase;
+  color:#a5b4fc;font-weight:800;margin-bottom:10px}
+.slide h4{font-size:clamp(1.05rem,2.6vw,1.6rem);letter-spacing:-.02em;line-height:1.25;margin-bottom:12px}
+.slide ul{list-style:none;display:grid;gap:6px;justify-content:center}
+.slide li{font-size:clamp(.78rem,1.7vw,.92rem);color:#cbd5e1}
+.slide li b{color:#f9a8d4}
+.slide .big{font-family:ui-monospace,Consolas,monospace;font-size:clamp(.9rem,2.2vw,1.15rem);
+  color:#67e8f9;letter-spacing:.02em}
+.controls{display:flex;align-items:center;gap:11px;padding:11px 15px;background:#0f172a;flex-wrap:wrap}
+.pbar{flex:1;min-width:110px;height:5px;border-radius:999px;background:#1e293b;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,#6366f1,#ec4899);transition:width .1s linear}
+.pbtn{width:34px;height:34px;border-radius:50%;border:none;background:#1e293b;color:#fff;
+  display:grid;place-items:center;cursor:pointer;font-size:.85rem;transition:.2s;font-family:inherit}
+.pbtn:hover{background:var(--primary)}
+.ptime{font-size:.72rem;color:#94a3b8;font-variant-numeric:tabular-nums;font-weight:600}
+.ptoggle{display:flex;align-items:center;gap:6px;font-size:.72rem;color:#94a3b8;font-weight:600;cursor:pointer}
+.ptoggle input{accent-color:var(--primary)}
 
-/* ---------- QUIZ ---------- */
-.q-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;
-  margin-bottom:14px;box-shadow:var(--shadow)}
-.q-num{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
-  color:var(--primary);background:#eef2ff;padding:4px 12px;border-radius:999px;margin-bottom:12px}
-.q-text{font-size:.98rem;font-weight:700;margin-bottom:16px;line-height:1.55}
-.opts{display:grid;gap:9px}
-.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
-  padding:13px 16px;border-radius:13px;border:1.5px solid var(--line);background:#fff;
-  font-family:inherit;font-size:.9rem;color:var(--ink-2);cursor:pointer;transition:.18s}
+/* ================= INFOGRAFIS ================= */
+.info-g{background:linear-gradient(160deg,#eef2ff,#fdf2f8);border-radius:16px;padding:22px;border:1px solid #e0e7ff}
+.info-g h4{font-size:1rem;margin-bottom:14px;letter-spacing:-.02em}
+.timeline{display:grid;gap:9px;margin-bottom:18px}
+.tl{display:flex;align-items:center;gap:11px;background:#fff;border-radius:11px;padding:10px 13px;
+  box-shadow:0 2px 10px -6px rgba(15,23,42,.2)}
+.tl .y{font-size:.7rem;font-weight:900;color:#fff;background:var(--primary);
+  padding:3px 9px;border-radius:6px;white-space:nowrap}
+.tl .x{font-size:.83rem;color:var(--ink2);font-weight:600}
+.vsplit{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vsplit>div{background:#fff;border-radius:12px;padding:13px;box-shadow:0 2px 10px -6px rgba(15,23,42,.2)}
+.vsplit .hd{font-size:.72rem;font-weight:900;letter-spacing:.06em;margin-bottom:7px}
+.vsplit .hd.r{color:#1d4ed8}.vsplit .hd.i{color:#be185d}
+.vsplit .ar{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:var(--ink2);line-height:1.9}
+
+/* ================= AUDIO ================= */
+.audio-box{display:flex;align-items:center;gap:14px;background:#0f172a;border-radius:14px;
+  padding:15px 18px;color:#fff;flex-wrap:wrap}
+.audio-box .ic{width:44px;height:44px;border-radius:50%;background:var(--primary);display:grid;
+  place-items:center;font-size:1.05rem;flex:0 0 44px;cursor:pointer;border:none;color:#fff;transition:.2s}
+.audio-box .ic:hover{background:var(--accent);transform:scale(1.06)}
+.audio-box .lbl{font-size:.86rem;font-weight:700}
+.audio-box .sub{font-size:.74rem;color:#94a3b8}
+
+/* ================= LATIHAN ================= */
+.fill-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;
+  margin-bottom:11px;box-shadow:var(--shadow)}
+.fill-q{font-size:.9rem;margin-bottom:10px;color:var(--ink2);line-height:1.8}
+.fill-in{padding:8px 13px;border-radius:9px;border:1.5px solid var(--line);font-family:inherit;
+  font-size:.88rem;font-weight:700;color:var(--primary);outline:none;transition:.2s;
+  min-width:150px;background:#fff}
+.fill-in:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+.fill-in.ok{border-color:var(--ok);background:var(--ok-soft);color:#047857}
+.fill-in.no{border-color:var(--err);background:var(--err-soft);color:#b91c1c}
+.fill-fb{font-size:.79rem;font-weight:700;margin-top:7px;display:none}
+.fill-fb.show{display:block}
+.fill-fb.good{color:var(--ok)}.fill-fb.bad{color:var(--err)}
+
+.arr-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;
+  margin-bottom:12px;box-shadow:var(--shadow)}
+.arr-q{font-size:.8rem;font-weight:800;color:var(--muted);margin-bottom:10px;
+  text-transform:uppercase;letter-spacing:.06em}
+.pool,.abox{display:flex;flex-wrap:wrap;gap:7px;min-height:50px;padding:11px;border-radius:12px;transition:.2s}
+.pool{background:#f1f5f9;margin-bottom:10px}
+.abox{background:#fafbff;border:2px dashed #cbd5e1}
+.abox.filled{border-color:#a5b4fc}
+.abox.correct{background:var(--ok-soft);border-color:var(--ok);border-style:solid}
+.abox.wrong{background:var(--err-soft);border-color:var(--err);border-style:solid}
+.word{padding:7px 14px;border-radius:10px;background:#fff;border:1.5px solid var(--line);
+  font-size:.85rem;font-weight:700;color:var(--ink2);cursor:pointer;font-family:inherit;transition:.17s}
+.word:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary)}
+.abox .word{background:var(--primary);color:#fff;border-color:var(--primary)}
+.abox .word:hover{background:var(--err);border-color:var(--err)}
+.arr-fb{font-size:.83rem;font-weight:700;margin-top:9px;display:none}
+.arr-fb.show{display:block}
+.arr-fb.good{color:var(--ok)}.arr-fb.bad{color:var(--err)}
+
+/* error analysis */
+.err-text{font-size:.95rem;line-height:2.4;color:var(--ink2);background:#fafbff;
+  border:1px solid var(--line);border-radius:14px;padding:20px}
+.etok{background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:4px 9px;
+  font-family:inherit;font-size:.88rem;font-weight:700;color:var(--primary);cursor:pointer;
+  transition:.16s;margin:0 1px}
+.etok:hover{border-color:var(--primary);background:var(--primary-soft)}
+.etok.picked{background:#fee2e2;border-color:var(--err);color:#b91c1c}
+.etok.reveal-ok{background:#dcfce7;border-color:var(--ok);color:#047857}
+.etok.reveal-miss{background:#fef9c3;border-color:var(--warn);color:#a16207}
+
+/* ================= FORUM ================= */
+.photo{aspect-ratio:16/9;border-radius:14px;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#fb923c 0%,#f43f5e 30%,#7c3aed 62%,#312e81 100%);margin-bottom:16px}
+.photo .sun{position:absolute;width:56px;height:56px;border-radius:50%;background:#fef3c7;
+  top:22%;left:24%;box-shadow:0 0 40px 12px rgba(254,243,199,.55)}
+.photo .sea{position:absolute;bottom:0;left:0;right:0;height:38%;
+  background:linear-gradient(180deg,#1e3a8a,#0f172a)}
+.photo .sand{position:absolute;bottom:0;left:0;right:0;height:16%;
+  background:linear-gradient(180deg,#78350f,#451a03)}
+.photo .cap{position:absolute;bottom:10px;left:12px;font-size:.72rem;font-weight:800;
+  color:#fff;background:rgba(0,0,0,.4);padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.post{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;
+  margin-bottom:10px;box-shadow:var(--shadow)}
+.post .ph{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.post .av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;display:grid;place-items:center;font-size:.7rem;font-weight:900}
+.post .nm{font-size:.82rem;font-weight:800}
+.post .tm{font-size:.7rem;color:var(--muted);margin-left:auto}
+.post .tx{font-size:.9rem;color:var(--ink2)}
+.post .badge{display:inline-block;font-size:.66rem;font-weight:800;padding:2px 9px;
+  border-radius:999px;background:var(--warn-soft);color:var(--warn);margin-top:8px}
+.post .corr{margin-top:9px;padding:9px 12px;border-radius:9px;background:var(--primary-soft);
+  font-size:.8rem;color:var(--ink2);border-left:3px solid var(--primary)}
+.corr-row{display:flex;gap:7px;margin-top:9px}
+.corr-row input{flex:1;padding:8px 12px;border-radius:9px;border:1.5px solid var(--line);
+  font-family:inherit;font-size:.8rem;outline:none}
+.corr-row input:focus{border-color:var(--primary)}
+
+/* ================= KUIS ================= */
+.q-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;
+  margin-bottom:12px;box-shadow:var(--shadow)}
+.q-num{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.08em;
+  color:var(--primary);background:var(--primary-soft);padding:4px 11px;border-radius:999px;margin-bottom:11px}
+.q-text{font-size:.95rem;font-weight:700;margin-bottom:14px;line-height:1.6}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;padding:12px 15px;
+  border-radius:12px;border:1.5px solid var(--line);background:#fff;font-family:inherit;
+  font-size:.88rem;color:var(--ink2);cursor:pointer;transition:.17s}
 .opt:hover:not(:disabled){border-color:var(--primary);background:#f5f6ff}
 .opt:disabled{cursor:default}
-.opt .letter{width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#f1f5f9;
-  display:grid;place-items:center;font-weight:800;font-size:.76rem;color:var(--muted)}
-.opt.correct{border-color:var(--ok);background:#ecfdf5}
+.opt .letter{width:25px;height:25px;flex:0 0 25px;border-radius:7px;background:#f1f5f9;
+  display:grid;place-items:center;font-weight:900;font-size:.73rem;color:var(--muted)}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
 .opt.correct .letter{background:var(--ok);color:#fff}
-.opt.wrong{border-color:var(--err);background:#fef2f2}
+.opt.wrong{border-color:var(--err);background:var(--err-soft)}
 .opt.wrong .letter{background:var(--err);color:#fff}
-.explain{margin-top:13px;padding:13px 16px;border-radius:12px;font-size:.85rem;
-  background:#f8fafc;border-left:4px solid var(--primary);color:var(--ink-2);display:none}
+.explain{margin-top:12px;padding:12px 15px;border-radius:11px;font-size:.83rem;
+  background:#f8fafc;border-left:4px solid var(--primary);color:var(--ink2);display:none}
 .explain.show{display:block;animation:fadeUp .3s ease}
-.score-box{background:linear-gradient(135deg,#0f172a,#312e81);color:#fff;border-radius:20px;
-  padding:28px;text-align:center;margin-top:20px;display:none}
+.score-box{background:linear-gradient(135deg,#0f172a,#312e81);color:#fff;border-radius:18px;
+  padding:26px;text-align:center;margin-top:18px;display:none}
 .score-box.show{display:block;animation:fadeUp .4s ease}
-.score-big{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;
+.score-big{font-size:2.8rem;font-weight:900;letter-spacing:-.04em;line-height:1;
   background:linear-gradient(135deg,#a5b4fc,#f9a8d4);-webkit-background-clip:text;
   background-clip:text;-webkit-text-fill-color:transparent}
-.score-msg{margin-top:8px;opacity:.9;font-size:.92rem}
+.score-msg{margin-top:7px;opacity:.92;font-size:.9rem}
 
-/* ---------- WRITING ---------- */
-textarea{width:100%;min-height:190px;padding:16px;border-radius:14px;border:1.5px solid var(--line);
-  font-family:inherit;font-size:.92rem;line-height:1.75;resize:vertical;outline:none;transition:.2s}
-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(99,102,241,.12)}
-.meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);
-  margin-top:10px;font-weight:600}
-.check-list{display:grid;gap:9px;margin-top:18px}
-.check{display:flex;gap:11px;align-items:flex-start;padding:12px 15px;border-radius:12px;
-  font-size:.86rem;border:1px solid var(--line);background:#fff}
-.check .ic{width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:grid;place-items:center;
-  font-size:.68rem;font-weight:800;color:#fff;margin-top:2px}
-.check.pass{border-color:#a7f3d0;background:#f0fdf9}
+/* ================= TUGAS ================= */
+textarea{width:100%;padding:15px;border-radius:13px;border:1.5px solid var(--line);
+  font-family:inherit;font-size:.9rem;line-height:1.8;resize:vertical;outline:none;transition:.2s}
+textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+#essay{min-height:180px}
+.meta-row{display:flex;gap:15px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);
+  margin-top:9px;font-weight:600}
+.check-list{display:grid;gap:8px;margin-top:16px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:11px;
+  font-size:.84rem;border:1px solid var(--line);background:#fff}
+.check .ic{width:19px;height:19px;flex:0 0 19px;border-radius:50%;display:grid;place-items:center;
+  font-size:.65rem;font-weight:900;color:#fff;margin-top:2px}
+.check.pass{border-color:#a7f3d0;background:var(--ok-soft)}
 .check.pass .ic{background:var(--ok)}
-.check.fail{border-color:#fecaca;background:#fff5f5}
+.check.fail{border-color:#fecaca;background:var(--err-soft)}
 .check.fail .ic{background:var(--err)}
 .check.pending{border-color:var(--line);background:#f8fafc;color:var(--muted)}
 .check.pending .ic{background:#cbd5e1}
 
-/* ---------- RUBRIC ---------- */
-.rubric{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:12px;
-  border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
-.rubric th{background:#0f172a;color:#fff;padding:12px;text-align:left;font-size:.73rem;
+table.rubric{width:100%;border-collapse:collapse;font-size:.79rem;margin-top:11px;
+  border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+table.rubric th{background:#0f172a;color:#fff;padding:11px;text-align:left;font-size:.7rem;
   text-transform:uppercase;letter-spacing:.06em}
-.rubric td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
-.rubric tr:nth-child(even) td{background:#fafbff}
+table.rubric td{padding:10px 11px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+table.rubric tr:nth-child(even) td{background:#fafbff}
 
-/* ---------- REVEAL ---------- */
-.reveal{opacity:0;transform:translateY(20px);transition:.65s cubic-bezier(.2,.7,.3,1)}
+/* ================= PENUTUP ================= */
+.reflect{display:grid;gap:12px}
+.reflect label{font-size:.85rem;font-weight:700;color:var(--ink2);display:block;margin-bottom:6px}
+.reflect textarea{min-height:80px;font-size:.86rem}
+details.docs{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;
+  margin-top:15px;box-shadow:var(--shadow)}
+details.docs summary{font-size:.9rem;font-weight:800;cursor:pointer;color:var(--primary)}
+details.docs[open] summary{margin-bottom:14px}
+.docs table{width:100%;border-collapse:collapse;font-size:.82rem}
+.docs td{padding:9px 10px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+.docs td:first-child{font-weight:800;color:var(--ink);width:38%}
+
+/* ================= STEPBAR ================= */
+.stepbar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:110;
+  display:flex;gap:6px;background:rgba(15,23,42,.93);backdrop-filter:blur(10px);
+  padding:7px;border-radius:999px;box-shadow:0 14px 30px -12px rgba(0,0,0,.55)}
+.stepbar button{border:none;background:transparent;color:#cbd5e1;font-family:inherit;
+  font-size:.78rem;font-weight:700;padding:9px 15px;border-radius:999px;cursor:pointer;transition:.2s;
+  display:flex;align-items:center;gap:5px}
+.stepbar button:hover:not(:disabled){background:rgba(255,255,255,.14);color:#fff}
+.stepbar button:disabled{opacity:.3;cursor:not-allowed}
+.stepbar .home{background:var(--primary);color:#fff}
+.stepbar .home:hover{background:var(--accent)}
+
+/* ================= FOOTER ================= */
+footer{max-width:1100px;margin:0 auto;padding:34px 18px 110px;text-align:center;
+  color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
+footer b{color:var(--ink2)}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s cubic-bezier(.2,.7,.3,1)}
 .reveal.show{opacity:1;transform:none}
 
-/* ---------- FOOTER ---------- */
-footer{max-width:1080px;margin:0 auto;padding:36px 20px 56px;text-align:center;
-  color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
-footer b{color:var(--ink-2)}
-
-@media (max-width:640px){
-  section{padding:40px 16px}
-  .nav-inner{padding:10px 14px}
-  .brand span.t{display:none}
-  .card{padding:18px}
-  .hero-card{border-radius:22px}
+@media(max-width:600px){
+  section{padding:38px 14px}
+  .card{padding:17px}
+  .hero{border-radius:20px}
+  .vsplit{grid-template-columns:1fr}
+  .stepbar button{padding:8px 11px;font-size:.73rem}
 }
 </style>
 </head>
@@ -254,137 +382,141 @@ footer b{color:var(--ink-2)}
 
 <nav class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="dot">SP</span><span class="t">Simple Past Tense</span></div>
+    <div class="brand"><span class="dot">SP</span><span class="txt">Simple Past Tense</span></div>
     <div class="nav-links">
       <a href="#beranda" class="active">Beranda</a>
       <a href="#materi">Materi</a>
+      <a href="#multimedia">Multimedia</a>
       <a href="#latihan">Latihan</a>
+      <a href="#forum">Forum</a>
       <a href="#kuis">Kuis</a>
       <a href="#tugas">Tugas</a>
+      <a href="#penutup">Penutup</a>
     </div>
   </div>
 </nav>
 
-<!-- ============ BERANDA ============ -->
+<!-- ================= BERANDA / PENDAHULUAN ================= -->
 <section id="beranda">
-  <div class="hero-card reveal">
-    <span class="pill">Bahasa Inggris · Kelas XI · SMA Negeri 1 Jember</span>
-    <h1>Kuasai Simple Past Tense dengan cara yang seru.</h1>
-    <p class="lead">E-module interaktif ini membantumu memahami, melatih, dan memakai Simple Past Tense
-      untuk bercerita tentang pengalaman masa lalu — tanpa tumpukan PDF yang membosankan.</p>
+  <div class="hero reveal">
+    <span class="pill">Modul Pembelajaran Berbasis Online · Bahasa Inggris Kelas XI</span>
+    <h1>Simple Past Tense: bercerita tentang masa lalu dengan percaya diri.</h1>
+    <p class="lead">Modul interaktif ini memandu kamu memahami, melatih, dan memakai Simple Past Tense
+      untuk menulis <i>Personal Recount</i> — dilengkapi video, infografis, audio, forum diskusi, dan umpan balik instan.</p>
     <div class="hero-actions">
       <a href="#materi" class="btn btn-light">Mulai Belajar →</a>
-      <a href="#kuis" class="btn btn-ghost">Coba Kuis Dulu</a>
+      <a href="#kuis" class="btn btn-ghost">Coba Kuis</a>
+    </div>
+    <div class="meta-chips">
+      <span>🎯 3 Tujuan Pembelajaran</span>
+      <span>⏱ ± 90 menit</span>
+      <span>💻 Daring Asinkronus</span>
+      <span>📱 Responsif</span>
     </div>
   </div>
 
-  <div class="grid-3">
+  <div class="card reveal" style="margin-top:18px">
+    <h3 class="ch">Peta Modul</h3>
+    <p class="cs">Struktur modul mengikuti alur pendahuluan → materi inti → evaluasi → penutup.</p>
+    <div class="peta">
+      <a href="#beranda"><div class="n">1</div><div class="t">Pendahuluan</div><div class="s">Tujuan &amp; petunjuk</div></a>
+      <a href="#materi"><div class="n">2</div><div class="t">Materi Inti</div><div class="s">5 bagian materi</div></a>
+      <a href="#multimedia"><div class="n">3</div><div class="t">Multimedia</div><div class="s">Video · infografis · audio</div></a>
+      <a href="#latihan"><div class="n">4</div><div class="t">Latihan</div><div class="s">3 jenis aktivitas</div></a>
+      <a href="#forum"><div class="n">5</div><div class="t">Forum Diskusi</div><div class="s">Peer-correction</div></a>
+      <a href="#kuis"><div class="n">6</div><div class="t">Kuis Formatif</div><div class="s">5 soal + pembahasan</div></a>
+      <a href="#tugas"><div class="n">7</div><div class="t">Tugas Sumatif</div><div class="s">Menulis recount</div></a>
+      <a href="#penutup"><div class="n">8</div><div class="t">Penutup</div><div class="s">Rangkuman &amp; refleksi</div></a>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:18px">
     <div class="goal reveal">
       <div class="num">1</div>
-      <h3>Memahami</h3>
+      <h4>Memahami</h4>
       <p>Mengidentifikasi rumus, fungsi sosial, serta perbedaan Regular dan Irregular Verbs dalam teks Recount.</p>
     </div>
     <div class="goal reveal">
       <div class="num">2</div>
-      <h3>Menerapkan</h3>
-      <p>Melengkapi kalimat rumpang dan menyusun kalimat Simple Past Tense (positif, negatif, tanya) dengan akurat.</p>
+      <h4>Menerapkan</h4>
+      <p>Melengkapi kalimat rumpang dan menyusun kalimat positif, negatif, serta tanya dengan akurat.</p>
     </div>
     <div class="goal reveal">
       <div class="num">3</div>
-      <h3>Membuat</h3>
-      <p>Menulis satu paragraf Personal Recount pendek menggunakan struktur Simple Past Tense yang benar.</p>
+      <h4>Membuat</h4>
+      <p>Menulis satu paragraf Personal Recount pendek dengan struktur Simple Past Tense yang benar.</p>
     </div>
   </div>
 
-  <div class="card reveal" style="margin-top:22px">
-    <h2 class="materi-h">Cara pakai modul ini</h2>
-    <p class="materi-sub">Ikuti alurnya dari atas ke bawah — setiap tahap saling melengkapi.</p>
+  <div class="card reveal">
+    <h3 class="ch">Petunjuk Penggunaan</h3>
     <ul class="tick">
-      <li><b>Materi</b> — baca 5 tab materi, mulai dari konsep dasar sampai menulis paragraf.</li>
-      <li><b>Latihan</b> — susun kata acak menjadi kalimat yang benar.</li>
-      <li><b>Kuis</b> — 5 soal pilihan ganda dengan pembahasan otomatis dan skor instan.</li>
-      <li><b>Tugas</b> — tulis Personal Recount-mu, lalu periksa dengan pengecek mandiri.</li>
+      <li>Gunakan menu di atas atau tombol <b>Berikutnya →</b> di bawah untuk berpindah bagian.</li>
+      <li>Pelajari <b>Materi</b> terlebih dahulu sebelum mengerjakan latihan dan kuis.</li>
+      <li>Setiap latihan dan kuis memberi <b>umpan balik langsung</b> — baca pembahasannya.</li>
+      <li>Ikuti <b>Forum Diskusi</b> untuk melatih <i>peer-correction</i> bersama teman.</li>
+      <li>Tulisanmu di Tugas dan Refleksi tersimpan otomatis di perangkatmu.</li>
     </ul>
   </div>
 </section>
 
-<!-- ============ MATERI ============ -->
+<!-- ================= MATERI ================= -->
 <section id="materi">
-  <span class="eyebrow">Tahap 1</span>
+  <span class="eyebrow">Materi Inti</span>
   <h2 class="sec">Materi Pembelajaran</h2>
-  <p class="sec-desc">Lima bagian materi tersusun dari yang paling sederhana sampai yang paling produktif.</p>
+  <p class="sec-desc">Lima bagian materi tersusun dari konsep paling sederhana hingga paling produktif.</p>
 
-  <div class="tabs" data-group="materi">
-    <button class="tab active" data-group="materi" data-tab="1">1 · Fungsi &amp; Penanda Waktu</button>
-    <button class="tab" data-group="materi" data-tab="2">2 · Regular vs Irregular</button>
-    <button class="tab" data-group="materi" data-tab="3">3 · Kalimat Verbal</button>
-    <button class="tab" data-group="materi" data-tab="4">4 · Kalimat Nominal</button>
-    <button class="tab" data-group="materi" data-tab="5">5 · Personal Recount</button>
+  <div class="tabs">
+    <button class="tab active" data-tab="m1">1 · Fungsi &amp; Penanda Waktu</button>
+    <button class="tab" data-tab="m2">2 · Regular vs Irregular</button>
+    <button class="tab" data-tab="m3">3 · Kalimat Verbal</button>
+    <button class="tab" data-tab="m4">4 · Kalimat Nominal</button>
+    <button class="tab" data-tab="m5">5 · Personal Recount</button>
   </div>
 
-  <!-- PANEL 1 -->
-  <div class="panel active" data-group="materi" data-panel="1">
+  <div class="panel active" id="m1">
     <div class="card">
-      <h3 class="materi-h">Apa itu Simple Past Tense?</h3>
-      <p class="materi-sub">Tenses yang dipakai untuk menyatakan kejadian yang <b>sudah selesai</b> di masa lampau.</p>
-
-      <p style="font-size:.92rem;color:var(--ink-2)">Simple Past Tense digunakan ketika kita membicarakan
-        suatu tindakan atau keadaan yang terjadi dan berakhir pada waktu tertentu di masa lalu.
-        Waktunya bisa disebutkan secara jelas, bisa juga sudah dipahami dari konteks.</p>
-
-      <div class="note">
-        <b>Fungsi sosial:</b> menceritakan pengalaman pribadi, menulis teks recount, melaporkan kejadian
-        yang sudah berlalu, dan menulis biografi.
-      </div>
-
-      <h4 style="font-size:.95rem;margin:20px 0 8px">Penanda waktu (Time Signals)</h4>
+      <h3 class="ch">Apa itu Simple Past Tense?</h3>
+      <p class="cs">Tenses untuk menyatakan kejadian yang <b>sudah selesai</b> di masa lampau.</p>
+      <p style="font-size:.9rem;color:var(--ink2)">Simple Past Tense dipakai ketika kita membicarakan tindakan
+        atau keadaan yang terjadi dan berakhir pada waktu tertentu di masa lalu. Waktunya bisa disebutkan
+        secara jelas, bisa juga dipahami dari konteks.</p>
+      <div class="note"><b>Fungsi sosial:</b> menceritakan pengalaman pribadi, menulis teks recount,
+        melaporkan kejadian yang sudah berlalu, dan menulis biografi.</div>
+      <h4 style="font-size:.92rem;margin:18px 0 8px">Penanda waktu (Time Signals)</h4>
       <div class="chip-row">
-        <span class="chip active">yesterday</span>
-        <span class="chip active">last week</span>
-        <span class="chip active">last night</span>
-        <span class="chip active">two days ago</span>
-        <span class="chip active">in 2020</span>
-        <span class="chip active">when I was a child</span>
+        <span class="chip active">yesterday</span><span class="chip active">last week</span>
+        <span class="chip active">last night</span><span class="chip active">two days ago</span>
+        <span class="chip active">in 2020</span><span class="chip active">when I was a child</span>
         <span class="chip active">that day</span>
       </div>
-
-      <div class="note warn" style="margin-top:18px">
-        ⚠️ Kalau tidak ada penanda waktu yang jelas, pastikan konteks kalimat memang menunjukkan
-        kejadian lampau — bukan kebiasaan yang masih berlangsung.
-      </div>
+      <div class="note warn" style="margin-top:16px">⚠️ Bila tidak ada penanda waktu yang jelas,
+        pastikan konteks kalimat memang menunjukkan kejadian lampau — bukan kebiasaan yang masih berlangsung.</div>
     </div>
   </div>
 
-  <!-- PANEL 2 -->
-  <div class="panel" data-group="materi" data-panel="2">
+  <div class="panel" id="m2">
     <div class="card">
-      <h3 class="materi-h">Regular vs Irregular Verbs</h3>
-      <p class="materi-sub">Kata kerja bentuk kedua (Verb 2) dibagi menjadi dua kelompok besar.</p>
-
+      <h3 class="ch">Regular vs Irregular Verbs</h3>
+      <p class="cs">Kata kerja bentuk kedua (Verb 2) terbagi menjadi dua kelompok besar.</p>
       <div class="grid-2">
-        <div style="background:#eff6ff;border-radius:14px;padding:18px">
+        <div style="background:#eff6ff;border-radius:13px;padding:17px">
           <span class="tag reg">REGULAR</span>
-          <p style="font-size:.87rem;margin-top:10px;color:var(--ink-2)">
-            Dibentuk dengan menambahkan <b>-ed</b> / <b>-d</b> pada bentuk dasar.</p>
+          <p style="font-size:.85rem;margin-top:9px;color:var(--ink2)">Dibentuk dengan menambahkan <b>-ed</b> / <b>-d</b>.</p>
           <div class="formula">play → play<b>ed</b><br>watch → watch<b>ed</b><br>study → stud<b>ied</b><br>stop → stopp<b>ed</b></div>
         </div>
-        <div style="background:#fdf2f8;border-radius:14px;padding:18px">
+        <div style="background:#fdf2f8;border-radius:13px;padding:17px">
           <span class="tag irr">IRREGULAR</span>
-          <p style="font-size:.87rem;margin-top:10px;color:var(--ink-2)">
-            Bentuknya berubah tidak beraturan dan harus dihafalkan.</p>
+          <p style="font-size:.85rem;margin-top:9px;color:var(--ink2)">Bentuknya berubah tidak beraturan dan harus dihafalkan.</p>
           <div class="formula">go → <i>went</i><br>eat → <i>ate</i><br>buy → <i>bought</i><br>see → <i>saw</i></div>
         </div>
       </div>
-
-      <div class="note ok" style="margin-top:18px">
-        💡 <b>Tips:</b> gunakan kolom pencarian di bawah untuk mencari kata kerja dengan cepat,
-        lalu filter berdasarkan jenisnya.
-      </div>
+      <div class="note ok" style="margin-top:16px">💡 Gunakan kamus kata kerja interaktif di bawah untuk mencari
+        kata kerja beserta bentuk keduanya.</div>
     </div>
-
     <div class="card">
-      <h3 class="materi-h">Kamus Kata Kerja Interaktif</h3>
-      <p class="materi-sub">Cari kata kerja, lihat bentuk keduanya, dan perhatikan jenisnya.</p>
+      <h3 class="ch">Kamus Kata Kerja Interaktif</h3>
+      <p class="cs">Cari kata kerja, lihat Verb 2-nya, dan perhatikan jenisnya.</p>
       <div class="verb-tools">
         <input class="search" id="verbSearch" type="search" placeholder="Cari kata kerja… (mis. go, makan, study)">
         <div class="chip-row">
@@ -394,181 +526,268 @@ footer b{color:var(--ink-2)}
         </div>
       </div>
       <div class="verb-scroll">
-        <table class="verb-table">
-          <thead>
-            <tr><th>Verb 1</th><th>Verb 2</th><th>Arti</th><th>Jenis</th></tr>
-          </thead>
+        <table class="vt">
+          <thead><tr><th>Verb 1</th><th>Verb 2</th><th>Arti</th><th>Jenis</th></tr></thead>
           <tbody id="verbBody"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <!-- PANEL 3 -->
-  <div class="panel" data-group="materi" data-panel="3">
+  <div class="panel" id="m3">
     <div class="card">
-      <h3 class="materi-h">Kalimat Verbal</h3>
-      <p class="materi-sub">Kalimat yang predikatnya berupa kata kerja (verb).</p>
-
-      <h4 style="font-size:.92rem;margin:16px 0 4px">✅ Positif (+)</h4>
+      <h3 class="ch">Kalimat Verbal</h3>
+      <p class="cs">Kalimat yang predikatnya berupa kata kerja (verb).</p>
+      <h4 style="font-size:.9rem;margin:15px 0 4px">✅ Positif (+)</h4>
       <div class="formula">Subject + <i>Verb 2</i> + Object/Complement</div>
-      <p style="font-size:.88rem;color:var(--muted)">She <b>watched</b> a movie last night.</p>
-
-      <h4 style="font-size:.92rem;margin:22px 0 4px">❌ Negatif (−)</h4>
+      <p style="font-size:.86rem;color:var(--muted)">She <b>watched</b> a movie last night.</p>
+      <h4 style="font-size:.9rem;margin:20px 0 4px">❌ Negatif (−)</h4>
       <div class="formula">Subject + <b>did not / didn't</b> + <em>Verb 1</em> + Object</div>
-      <p style="font-size:.88rem;color:var(--muted)">She <b>did not watch</b> a movie last night.</p>
-
-      <h4 style="font-size:.92rem;margin:22px 0 4px">❓ Tanya (?)</h4>
+      <p style="font-size:.86rem;color:var(--muted)">She <b>did not watch</b> a movie last night.</p>
+      <h4 style="font-size:.9rem;margin:20px 0 4px">❓ Tanya (?)</h4>
       <div class="formula"><b>Did</b> + Subject + <em>Verb 1</em> + Object ?</div>
-      <p style="font-size:.88rem;color:var(--muted)"><b>Did</b> she <b>watch</b> a movie last night?</p>
-
-      <div class="note warn" style="margin-top:20px">
-        ⚠️ <b>Kesalahan paling umum:</b> setelah <b>did / did not</b>, kata kerja kembali ke
-        <b>bentuk dasar (Verb 1)</b>. Bukan <em>“did not went”</em>, melainkan
-        <b>“did not go”</b>.
-      </div>
+      <p style="font-size:.86rem;color:var(--muted)"><b>Did</b> she <b>watch</b> a movie last night?</p>
+      <div class="note warn" style="margin-top:18px">⚠️ <b>Kesalahan paling umum:</b> setelah <b>did / did not</b>,
+        kata kerja kembali ke <b>bentuk dasar (Verb 1)</b> — bukan <em>“did not went”</em>, melainkan <b>“did not go”</b>.</div>
     </div>
   </div>
 
-  <!-- PANEL 4 -->
-  <div class="panel" data-group="materi" data-panel="4">
+  <div class="panel" id="m4">
     <div class="card">
-      <h3 class="materi-h">Kalimat Nominal</h3>
-      <p class="materi-sub">Kalimat yang predikatnya bukan kata kerja, melainkan kata sifat, kata benda, atau keterangan.</p>
-
-      <h4 style="font-size:.92rem;margin:16px 0 4px">✅ Positif (+)</h4>
+      <h3 class="ch">Kalimat Nominal</h3>
+      <p class="cs">Kalimat yang predikatnya bukan kata kerja, melainkan kata sifat, kata benda, atau keterangan.</p>
+      <h4 style="font-size:.9rem;margin:15px 0 4px">✅ Positif (+)</h4>
       <div class="formula">Subject + <b>was / were</b> + Complement</div>
-      <p style="font-size:.88rem;color:var(--muted)">They <b>were</b> very happy two days ago.</p>
-
-      <h4 style="font-size:.92rem;margin:22px 0 4px">❌ Negatif (−)</h4>
+      <p style="font-size:.86rem;color:var(--muted)">They <b>were</b> very happy two days ago.</p>
+      <h4 style="font-size:.9rem;margin:20px 0 4px">❌ Negatif (−)</h4>
       <div class="formula">Subject + <b>was not / were not</b> + Complement</div>
-      <p style="font-size:.88rem;color:var(--muted)">They <b>were not</b> happy two days ago.</p>
-
-      <h4 style="font-size:.92rem;margin:22px 0 4px">❓ Tanya (?)</h4>
+      <p style="font-size:.86rem;color:var(--muted)">They <b>were not</b> happy two days ago.</p>
+      <h4 style="font-size:.9rem;margin:20px 0 4px">❓ Tanya (?)</h4>
       <div class="formula"><b>Was / Were</b> + Subject + Complement ?</div>
-      <p style="font-size:.88rem;color:var(--muted)"><b>Were</b> they happy two days ago?</p>
-
-      <div class="grid-2" style="margin-top:20px">
-        <div style="background:#eef2ff;border-radius:14px;padding:16px">
-          <b style="font-size:.9rem">WAS</b>
-          <p style="font-size:.85rem;color:var(--ink-2);margin-top:6px">
-            I · He · She · It · nama orang tunggal</p>
+      <p style="font-size:.86rem;color:var(--muted)"><b>Were</b> they happy two days ago?</p>
+      <div class="grid-2" style="margin-top:18px">
+        <div style="background:var(--primary-soft);border-radius:13px;padding:15px">
+          <b style="font-size:.88rem">WAS</b>
+          <p style="font-size:.83rem;color:var(--ink2);margin-top:5px">I · He · She · It · nama orang tunggal</p>
         </div>
-        <div style="background:#fdf2f8;border-radius:14px;padding:16px">
-          <b style="font-size:.9rem">WERE</b>
-          <p style="font-size:.85rem;color:var(--ink-2);margin-top:6px">
-            You · We · They · nama orang jamak</p>
+        <div style="background:var(--accent-soft);border-radius:13px;padding:15px">
+          <b style="font-size:.88rem">WERE</b>
+          <p style="font-size:.83rem;color:var(--ink2);margin-top:5px">You · We · They · nama orang jamak</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PANEL 5 -->
-  <div class="panel" data-group="materi" data-panel="5">
+  <div class="panel" id="m5">
     <div class="card">
-      <h3 class="materi-h">Personal Recount Text</h3>
-      <p class="materi-sub">Teks yang menceritakan kembali pengalaman pribadi secara kronologis.</p>
-
-      <h4 style="font-size:.92rem;margin:16px 0 8px">Struktur Teks</h4>
+      <h3 class="ch">Personal Recount Text</h3>
+      <p class="cs">Teks yang menceritakan kembali pengalaman pribadi secara kronologis.</p>
+      <h4 style="font-size:.9rem;margin:14px 0 7px">Struktur Teks</h4>
       <ul class="tick">
-        <li><b>Orientation</b> — siapa, kapan, di mana peristiwa terjadi.</li>
+        <li><b>Orientation</b> — siapa, kapan, dan di mana peristiwa terjadi.</li>
         <li><b>Events</b> — rangkaian kejadian yang diceritakan berurutan.</li>
         <li><b>Reorientation</b> — komentar atau kesan penulis di akhir cerita.</li>
       </ul>
-
-      <h4 style="font-size:.92rem;margin:22px 0 8px">Ciri Kebahasaan</h4>
+      <h4 style="font-size:.9rem;margin:20px 0 7px">Ciri Kebahasaan</h4>
       <ul class="tick">
         <li>Menggunakan Simple Past Tense secara konsisten.</li>
         <li>Banyak menggunakan <i>action verbs</i> bentuk lampau (went, took, bought).</li>
         <li>Menggunakan kata sambung waktu: <i>then, after that, finally, suddenly</i>.</li>
         <li>Menggunakan kata ganti orang pertama (I, we).</li>
       </ul>
-
-      <div class="note ok" style="margin-top:20px">
-        <b>Contoh paragraf:</b><br>
+      <div class="note ok" style="margin-top:18px"><b>Contoh paragraf:</b><br>
         <em>Last holiday, my family and I <b>went</b> to Bali. We <b>stayed</b> there for four days.
-        On the first day, we <b>visited</b> Kuta Beach and <b>watched</b> the sunset.
-        Then, we <b>ate</b> local seafood at a small restaurant near the beach.
-        I <b>bought</b> some souvenirs for my friends. Finally, we <b>flew</b> home with
-        unforgettable memories. It <b>was</b> the best holiday I have ever had.</em>
+        On the first day, we <b>visited</b> Kuta Beach and <b>watched</b> the sunset. Then, we <b>ate</b>
+        local seafood at a small restaurant near the beach. I <b>bought</b> some souvenirs for my friends.
+        Finally, we <b>flew</b> home with unforgettable memories. It <b>was</b> the best holiday I have ever had.</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MULTIMEDIA ================= -->
+<section id="multimedia">
+  <span class="eyebrow">Integrasi Multimedia</span>
+  <h2 class="sec">Video, Infografis, dan Audio</h2>
+  <p class="sec-desc">Tiga jenis media pendukung untuk memperkuat pemahaman konsep — visual, audio, dan teks.</p>
+
+  <div class="card reveal">
+    <h3 class="ch">🎬 Video Pembelajaran: Simple Past Tense</h3>
+    <p class="cs">Durasi ± 2 menit. Tekan tombol putar; aktifkan narasi suara bila perangkatmu mendukung.</p>
+    <div class="player">
+      <div class="screen">
+        <div class="slide" id="vidSlide">
+          <div class="st">Simple Past Tense</div>
+          <h4>Siap belajar bercerita tentang masa lalu?</h4>
+          <ul><li>Tekan tombol <b>▶</b> untuk memulai.</li></ul>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="pbtn" id="vidPlay" aria-label="Putar video">▶</button>
+        <div class="pbar"><i id="vidBar"></i></div>
+        <span class="ptime" id="vidTime">0:00 / 0:00</span>
+        <label class="ptoggle"><input type="checkbox" id="vidVoice"> Narasi suara</label>
+      </div>
+    </div>
+    <div class="note ok" style="margin-top:14px">💡 <b>Catatan:</b> setelah menonton, catatlah minimal
+      <b>5 kata kerja</b> (regular dan irregular) yang kamu temukan — ini menjadi bekal untuk latihan berikutnya.</div>
+  </div>
+
+  <div class="card reveal">
+    <h3 class="ch">📊 Infografis: Peta Konsep Simple Past Tense</h3>
+    <p class="cs">Ringkasan visual rumus dan penanda waktu sebagai jangkar belajar (visual anchor).</p>
+    <div class="info-g">
+      <h4>⏱ Garis Waktu Kejadian Lampau</h4>
+      <div class="timeline">
+        <div class="tl"><span class="y">PAST</span><span class="x">yesterday · last week · two days ago</span></div>
+        <div class="tl"><span class="y">NOW</span><span class="x">saat ini (titik cerita dimulai)</span></div>
+        <div class="tl"><span class="y">FORM</span><span class="x">S + V2 &nbsp;|&nbsp; S + did not + V1 &nbsp;|&nbsp; Did + S + V1?</span></div>
+      </div>
+      <h4>📚 Perbandingan Bentuk Kata Kerja</h4>
+      <div class="vsplit">
+        <div>
+          <div class="hd r">REGULAR (-ed)</div>
+          <div class="ar">play → played<br>watch → watched<br>study → studied<br>stop → stopped</div>
+        </div>
+        <div>
+          <div class="hd i">IRREGULAR (berubah)</div>
+          <div class="ar">go → went<br>eat → ate<br>buy → bought<br>see → saw</div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============ LATIHAN ============ -->
-<section id="latihan">
-  <span class="eyebrow">Tahap 2</span>
-  <h2 class="sec">Latihan: Susun Kata</h2>
-  <p class="sec-desc">Klik kata di kotak abu-abu untuk menyusun kalimat. Klik kata di kotak jawaban untuk mengembalikannya.</p>
-
-  <div id="arrangeList"></div>
-
-  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
-    <div>
-      <div style="font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Skor Latihan</div>
-      <div style="font-size:1.6rem;font-weight:800;letter-spacing:-.03em" id="arrScore">0 / 4</div>
+  <div class="card reveal">
+    <h3 class="ch">🎧 Audio Listening: Pengalaman Liburan</h3>
+    <p class="cs">Dengarkan rekaman, lalu jawab 3 pertanyaan pemahaman di bawahnya.</p>
+    <div class="audio-box">
+      <button class="ic" id="audioPlay" aria-label="Putar audio">▶</button>
+      <div>
+        <div class="lbl">Listening Track — “My Last Holiday”</div>
+        <div class="sub" id="audioStatus">Tekan tombol untuk memutar (Text-to-Speech)</div>
+      </div>
     </div>
-    <button class="btn btn-outline btn-sm" id="arrReset">Ulangi Semua</button>
+    <div id="listenQuiz" style="margin-top:16px"></div>
   </div>
 </section>
 
-<!-- ============ KUIS ============ -->
+<!-- ================= LATIHAN ================= -->
+<section id="latihan">
+  <span class="eyebrow">Evaluasi · Bagian 1</span>
+  <h2 class="sec">Latihan Interaktif</h2>
+  <p class="sec-desc">Tiga jenis aktivitas untuk menguji pemahamanmu secara bertahap.</p>
+
+  <div class="card">
+    <h3 class="ch">A. Melengkapi Kalimat Rumpang</h3>
+    <p class="cs">Tulis bentuk kata kerja yang tepat, lalu klik <b>Periksa Semua</b>.</p>
+    <div id="fillList"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:14px">
+      <button class="btn btn-primary btn-sm" id="fillCheck">Periksa Semua</button>
+      <button class="btn btn-outline btn-sm" id="fillReset">Ulangi</button>
+      <span style="font-size:.82rem;font-weight:800;color:var(--muted)" id="fillScore">Skor: 0 / 6</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="ch">B. Menyusun Kata</h3>
+    <p class="cs">Klik kata di kotak abu-abu untuk menyusun kalimat. Klik kata di kotak jawaban untuk mengembalikannya.</p>
+    <div id="arrangeList"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:12px">
+      <button class="btn btn-outline btn-sm" id="arrReset">Ulangi Semua</button>
+      <span style="font-size:.82rem;font-weight:800;color:var(--muted)" id="arrScore">0 / 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="ch">C. Analisis Kesalahan (Problem-Based Learning)</h3>
+    <p class="cs">Teks di bawah ini memuat beberapa kesalahan tata bahasa lampau. Klik kata kerja yang <b>salah</b>, lalu periksa.</p>
+    <div class="err-text" id="errText"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:13px">
+      <button class="btn btn-primary btn-sm" id="errCheck">Periksa Jawaban</button>
+      <button class="btn btn-outline btn-sm" id="errReset">Ulangi</button>
+      <span style="font-size:.82rem;font-weight:800;color:var(--muted)" id="errScore"></span>
+    </div>
+    <div id="errFeedback" style="margin-top:12px"></div>
+  </div>
+</section>
+
+<!-- ================= FORUM ================= -->
+<section id="forum">
+  <span class="eyebrow">Aktivitas Kolaboratif</span>
+  <h2 class="sec">Forum Diskusi &amp; Peer-Correction</h2>
+  <p class="sec-desc">Tulis satu kalimat lampau berdasarkan foto, lalu berikan koreksi sopan pada kalimat teman.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="photo">
+        <div class="sun"></div><div class="sea"></div><div class="sand"></div>
+        <span class="cap">📷 Liburan Sekolah</span>
+      </div>
+      <h3 class="ch">Instruksi</h3>
+      <ul class="tick">
+        <li>Tuliskan <b>satu pengalaman menarik</b> yang berkaitan dengan suasana foto di atas.</li>
+        <li>Gunakan <b>Simple Past Tense</b> dan sertakan penanda waktu lampau.</li>
+        <li>Setelah memposting, berikan <b>koreksi sopan</b> pada minimal 2 kalimat teman.</li>
+      </ul>
+      <textarea id="forumInput" placeholder="Contoh: Last holiday, I went to the beach with my family and we watched the sunset together." style="min-height:100px;margin-top:10px"></textarea>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:11px">
+        <button class="btn btn-primary btn-sm" id="forumPost">Kirim ke Forum</button>
+        <button class="btn btn-outline btn-sm" id="forumClear">Hapus Semua Postingan</button>
+      </div>
+      <div id="forumHint" style="font-size:.79rem;font-weight:700;margin-top:9px"></div>
+    </div>
+
+    <div class="card">
+      <h3 class="ch">Utas Diskusi</h3>
+      <p class="cs">Postinganmu tersimpan di perangkat ini. Beri koreksi untuk melatih <i>peer-correction</i>.</p>
+      <div id="forumList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KUIS ================= -->
 <section id="kuis">
-  <span class="eyebrow">Tahap 3</span>
-  <h2 class="sec">Kuis Interaktif</h2>
-  <p class="sec-desc">5 soal pilihan ganda. Pilih satu jawaban — pembahasan langsung muncul setelahnya.</p>
-
+  <span class="eyebrow">Evaluasi · Bagian 2</span>
+  <h2 class="sec">Kuis Formatif</h2>
+  <p class="sec-desc">5 soal pilihan ganda dengan pembahasan otomatis dan skor instan (skor = benar × 20).</p>
   <div id="quizList"></div>
-
   <div class="score-box" id="scoreBox">
     <div class="score-big" id="scoreNum">0</div>
     <div class="score-msg" id="scoreMsg"></div>
-    <button class="btn btn-light btn-sm" id="quizReset" style="margin-top:18px">Kerjakan Ulang</button>
+    <button class="btn btn-light btn-sm" id="quizReset" style="margin-top:16px">Kerjakan Ulang</button>
   </div>
 </section>
 
-<!-- ============ TUGAS ============ -->
+<!-- ================= TUGAS ================= -->
 <section id="tugas">
-  <span class="eyebrow">Tahap 4</span>
-  <h2 class="sec">Tugas Menulis: Personal Recount</h2>
+  <span class="eyebrow">Evaluasi · Bagian 3</span>
+  <h2 class="sec">Tugas Sumatif: Menulis Personal Recount</h2>
   <p class="sec-desc">Tulis 5–7 kalimat tentang pengalaman pribadimu yang tidak terlupakan. Gunakan Simple Past Tense.</p>
 
   <div class="card">
-    <label for="essay" style="font-size:.85rem;font-weight:800;color:var(--ink-2)">
-      Tulisanmu
-    </label>
-    <textarea id="essay" style="margin-top:10px"
-      placeholder="Last holiday, I went to ..."></textarea>
+    <label for="essay" style="font-size:.84rem;font-weight:800;color:var(--ink2)">Tulisanmu</label>
+    <textarea id="essay" style="margin-top:9px" placeholder="Last holiday, I went to ..."></textarea>
     <div class="meta-row">
       <span id="wordCount">0 kata</span>
       <span id="sentCount">0 kalimat</span>
       <span id="charCount">0 karakter</span>
     </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:14px">
       <button class="btn btn-primary btn-sm" id="checkEssay">Periksa Tulisan</button>
       <button class="btn btn-outline btn-sm" id="clearEssay">Hapus</button>
     </div>
-
     <div class="check-list" id="checkList">
       <div class="check pending"><span class="ic">·</span><span>Tulis dulu paragrafmu, lalu klik <b>Periksa Tulisan</b>.</span></div>
     </div>
   </div>
 
   <div class="card">
-    <h3 class="materi-h">Rubrik Penilaian</h3>
-    <p class="materi-sub">Gunakan rubrik ini untuk mengevaluasi tulisanmu sendiri sebelum dikumpulkan.</p>
+    <h3 class="ch">Rubrik Penilaian</h3>
+    <p class="cs">Gunakan rubrik ini untuk mengevaluasi tulisanmu sebelum dikumpulkan.</p>
     <div style="overflow-x:auto">
       <table class="rubric">
-        <thead>
-          <tr>
-            <th>Kriteria</th>
-            <th>Skor 4 — Sangat Baik</th>
-            <th>Skor 3 — Baik</th>
-            <th>Skor 2 — Cukup</th>
-            <th>Skor 1 — Kurang</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Kriteria</th><th>Skor 4 — Sangat Baik</th><th>Skor 3 — Baik</th><th>Skor 2 — Cukup</th><th>Skor 1 — Kurang</th>
+        </tr></thead>
         <tbody>
           <tr>
             <td><b>Tata Bahasa</b><br>(Grammar Accuracy)</td>
@@ -594,11 +813,75 @@ footer b{color:var(--ink-2)}
         </tbody>
       </table>
     </div>
-    <div class="note" style="margin-top:18px">
-      <b>Perhitungan Skor Akhir:</b> Nilai = (Total Skor Perolehan ÷ 12) × 100
-    </div>
+    <div class="note" style="margin-top:16px"><b>Perhitungan Skor Akhir:</b> Nilai = (Total Skor Perolehan ÷ 12) × 100</div>
   </div>
 </section>
+
+<!-- ================= PENUTUP ================= -->
+<section id="penutup">
+  <span class="eyebrow">Penutup</span>
+  <h2 class="sec">Rangkuman &amp; Refleksi</h2>
+  <p class="sec-desc">Tutup pembelajaran dengan merangkum dan merefleksikan apa yang sudah kamu pelajari.</p>
+
+  <div class="card">
+    <h3 class="ch">Rangkuman</h3>
+    <ul class="tick">
+      <li>Simple Past Tense menyatakan kejadian yang <b>sudah selesai</b> di masa lampau.</li>
+      <li><b>Regular Verbs</b> dibentuk dengan <b>-ed</b>; <b>Irregular Verbs</b> berubah tidak beraturan.</li>
+      <li><b>Verbal:</b> S + V2 · S + did not + V1 · Did + S + V1?</li>
+      <li><b>Nominal:</b> S + was/were + Complement.</li>
+      <li><b>Personal Recount</b> = Orientation → Events → Reorientation.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="ch">Refleksi Belajar</h3>
+    <p class="cs">Jawab dengan jujur — refleksi membantumu mengetahui bagian yang perlu diperkuat.</p>
+    <div class="reflect">
+      <div><label>1. Bagian materi mana yang paling mudah kamu pahami? Mengapa?</label>
+        <textarea data-ref="1" placeholder="Tulis refleksimu…"></textarea></div>
+      <div><label>2. Bagian mana yang masih terasa sulit, dan apa yang akan kamu lakukan?</label>
+        <textarea data-ref="2" placeholder="Tulis refleksimu…"></textarea></div>
+      <div><label>3. Satu kalimat lampau tentang pengalaman belajarmu hari ini:</label>
+        <textarea data-ref="3" placeholder="Today, I learned…"></textarea></div>
+    </div>
+    <div style="display:flex;gap:9px;align-items:center;margin-top:13px;flex-wrap:wrap">
+      <button class="btn btn-primary btn-sm" id="refSave">Simpan Refleksi</button>
+      <span id="refStatus" style="font-size:.8rem;font-weight:700;color:var(--ok)"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="ch">Daftar Pustaka</h3>
+    <div style="font-size:.85rem;color:var(--ink2);display:grid;gap:10px">
+      <div>Pribadi, B. A. (2023). <i>Produksi Bahan Pembelajaran Berbasis Online</i>. Tangerang Selatan: Universitas Terbuka.</div>
+      <div>Ramadhani, R. (2020). Analisis Kebutuhan Pengembangan Media Pembelajaran Berbasis Website pada Mata Pelajaran Bahasa Inggris. <i>Jurnal Teknologi Pendidikan</i>, 8(2), 145–155.</div>
+      <div>Syarifuddin, S. (2022). Karakteristik Peserta Didik dalam Konteks Pembelajaran Digital di Sekolah Menengah Atas. <i>Jurnal Ilmu Pendidikan</i>, 4(1), 89–102.</div>
+    </div>
+  </div>
+
+  <details class="docs">
+    <summary>📋 Dokumentasi Implementasi (Panduan Tugas 3)</summary>
+    <table>
+      <tr><td>1. Implementasi Desain</td>
+        <td>Struktur modul: Pendahuluan (Beranda) → Materi Inti (5 submateri) → Evaluasi (Latihan, Kuis, Tugas) → Penutup (rangkuman &amp; refleksi). Sesuai storyboard Tugas 2.</td></tr>
+      <tr><td>2. Konten Interaktif</td>
+        <td>Latihan rumpang, susun kata, analisis kesalahan (PBL), forum diskusi dengan peer-correction, kuis pilihan ganda dengan pembahasan instan.</td></tr>
+      <tr><td>3. Desain Antarmuka</td>
+        <td>Navigasi atas + tombol <b>Berikutnya / Sebelumnya / Beranda</b>, progress bar, 3 warna utama (indigo–pink–netral), font Inter, whitespace lega.</td></tr>
+      <tr><td>4. Integrasi Multimedia</td>
+        <td>Video pembelajaran tersimulasi (slide + narasi Text-to-Speech), infografis peta konsep, audio listening dengan soal pemahaman.</td></tr>
+      <tr><td>Bukti untuk Laporan</td>
+        <td>Ambil tangkapan layar pada: (a) halaman Beranda, (b) tab Materi, (c) pemutar video, (d) latihan yang sudah dijawab, (e) forum diskusi, (f) kuis dengan skor, (g) tugas menulis + hasil pemeriksaan.</td></tr>
+    </table>
+  </details>
+</section>
+
+<div class="stepbar">
+  <button id="btnPrev">← Sebelumnya</button>
+  <button class="home" id="btnHome">⌂ Beranda</button>
+  <button id="btnNext">Berikutnya →</button>
+</div>
 
 <footer>
   <b>E-Module Interaktif · Simple Past Tense</b><br>
@@ -607,7 +890,7 @@ footer b{color:var(--ink-2)}
 
 <script>
 /* ============================================================
-   0. PROGRESS BAR + NAV AKTIF + REVEAL
+   0. PROGRESS, NAV AKTIF, REVEAL, STEPBAR
    ============================================================ */
 const progressBar = document.getElementById('progress');
 window.addEventListener('scroll', () => {
@@ -616,98 +899,98 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = (max > 0 ? (el.scrollTop / max) * 100 : 0) + '%';
 }, { passive: true });
 
+const FLOW = ['beranda','materi','multimedia','latihan','forum','kuis','tugas','penutup'];
 const navLinks = [...document.querySelectorAll('.nav-links a')];
-const sections = [...document.querySelectorAll('section[id]')];
+
 const navObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      const i = FLOW.indexOf(e.target.id);
+      document.getElementById('btnPrev').disabled = i <= 0;
+      document.getElementById('btnNext').disabled = i >= FLOW.length - 1;
     }
   });
-}, { rootMargin: '-45% 0px -50% 0px' });
-sections.forEach(s => navObs.observe(s));
+}, { rootMargin: '-42% 0px -50% 0px' });
+FLOW.forEach(id => { const el = document.getElementById(id); if (el) navObs.observe(el); });
 
 const revObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('show'); revObs.unobserve(e.target); }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
+function currentSectionIndex() {
+  let idx = 0, min = Infinity;
+  FLOW.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const d = Math.abs(el.getBoundingClientRect().top - 90);
+    if (d < min) { min = d; idx = i; }
+  });
+  return idx;
+}
+document.getElementById('btnPrev').addEventListener('click', () => {
+  const i = currentSectionIndex();
+  if (i > 0) document.getElementById(FLOW[i - 1]).scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById('btnNext').addEventListener('click', () => {
+  const i = currentSectionIndex();
+  if (i < FLOW.length - 1) document.getElementById(FLOW[i + 1]).scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById('btnHome').addEventListener('click', () => {
+  document.getElementById('beranda').scrollIntoView({ behavior: 'smooth' });
+});
+document.getElementById('btnPrev').disabled = true;
+
 /* ============================================================
-   1. TABS
+   1. TABS MATERI
    ============================================================ */
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    const group = tab.dataset.group;
-    document.querySelectorAll(`.tab[data-group="${group}"]`).forEach(t => t.classList.remove('active'));
-    document.querySelectorAll(`.panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
-    const target = document.querySelector(`.panel[data-group="${group}"][data-panel="${tab.dataset.tab}"]`);
-    if (target) target.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
   });
 });
 
 /* ============================================================
-   2. VERB EXPLORER
+   2. KAMUS KATA KERJA
    ============================================================ */
 const VERBS = [
-  ['play','played','bermain','reg'],
-  ['watch','watched','menonton','reg'],
-  ['visit','visited','mengunjungi','reg'],
-  ['study','studied','belajar','reg'],
-  ['clean','cleaned','membersihkan','reg'],
-  ['finish','finished','menyelesaikan','reg'],
-  ['cook','cooked','memasak','reg'],
-  ['travel','traveled','bepergian','reg'],
-  ['listen','listened','mendengarkan','reg'],
-  ['help','helped','menolong','reg'],
-  ['walk','walked','berjalan','reg'],
-  ['arrive','arrived','tiba','reg'],
-  ['go','went','pergi','irr'],
-  ['eat','ate','makan','irr'],
-  ['buy','bought','membeli','irr'],
-  ['see','saw','melihat','irr'],
-  ['take','took','mengambil','irr'],
-  ['write','wrote','menulis','irr'],
-  ['swim','swam','berenang','irr'],
-  ['meet','met','bertemu','irr'],
-  ['come','came','datang','irr'],
-  ['do','did','melakukan','irr'],
-  ['have','had','memiliki','irr'],
-  ['make','made','membuat','irr'],
-  ['read','read','membaca','irr'],
-  ['sleep','slept','tidur','irr'],
-  ['get','got','mendapat','irr'],
-  ['give','gave','memberi','irr'],
-  ['sing','sang','menyanyi','irr'],
-  ['drink','drank','minum','irr']
+  ['play','played','bermain','reg'],['watch','watched','menonton','reg'],
+  ['visit','visited','mengunjungi','reg'],['study','studied','belajar','reg'],
+  ['clean','cleaned','membersihkan','reg'],['finish','finished','menyelesaikan','reg'],
+  ['cook','cooked','memasak','reg'],['travel','traveled','bepergian','reg'],
+  ['listen','listened','mendengarkan','reg'],['help','helped','menolong','reg'],
+  ['walk','walked','berjalan','reg'],['arrive','arrived','tiba','reg'],
+  ['go','went','pergi','irr'],['eat','ate','makan','irr'],['buy','bought','membeli','irr'],
+  ['see','saw','melihat','irr'],['take','took','mengambil','irr'],['write','wrote','menulis','irr'],
+  ['swim','swam','berenang','irr'],['meet','met','bertemu','irr'],['come','came','datang','irr'],
+  ['do','did','melakukan','irr'],['have','had','memiliki','irr'],['make','made','membuat','irr'],
+  ['read','read','membaca','irr'],['sleep','slept','tidur','irr'],['get','got','mendapat','irr'],
+  ['give','gave','memberi','irr'],['sing','sang','menyanyi','irr'],['drink','drank','minum','irr']
 ];
-
 const verbBody = document.getElementById('verbBody');
 const verbSearch = document.getElementById('verbSearch');
 let verbFilter = 'all';
 
 function renderVerbs() {
   const q = verbSearch.value.trim().toLowerCase();
-  const rows = VERBS.filter(v => {
-    const matchFilter = verbFilter === 'all' || v[3] === verbFilter;
-    const matchSearch = !q || v[0].includes(q) || v[1].includes(q) || v[2].includes(q);
-    return matchFilter && matchSearch;
-  });
-
+  const rows = VERBS.filter(v => (verbFilter === 'all' || v[3] === verbFilter) &&
+    (!q || v[0].includes(q) || v[1].includes(q) || v[2].includes(q)));
   if (!rows.length) {
-    verbBody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:26px;color:#94a3b8">Kata kerja tidak ditemukan.</td></tr>';
+    verbBody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:24px;color:#94a3b8">Kata kerja tidak ditemukan.</td></tr>';
     return;
   }
-
-  verbBody.innerHTML = rows.map(v => `
-    <tr>
-      <td><b>${v[0]}</b></td>
-      <td style="color:#4f46e5;font-weight:700">${v[1]}</td>
-      <td style="color:#64748b">${v[2]}</td>
-      <td><span class="tag ${v[3]}">${v[3] === 'reg' ? 'REGULAR' : 'IRREGULAR'}</span></td>
-    </tr>`).join('');
+  verbBody.innerHTML = rows.map(v => `<tr>
+    <td><b>${v[0]}</b></td>
+    <td style="color:#4f46e5;font-weight:700">${v[1]}</td>
+    <td style="color:#64748b">${v[2]}</td>
+    <td><span class="tag ${v[3]}">${v[3] === 'reg' ? 'REGULAR' : 'IRREGULAR'}</span></td>
+  </tr>`).join('');
 }
 verbSearch.addEventListener('input', renderVerbs);
 document.querySelectorAll('.chip[data-filter]').forEach(btn => {
@@ -721,247 +1004,498 @@ document.querySelectorAll('.chip[data-filter]').forEach(btn => {
 renderVerbs();
 
 /* ============================================================
-   3. LATIHAN SUSUN KATA
+   3. VIDEO SIMULASI (slide + narasi TTS)
    ============================================================ */
-const ARRANGE = [
-  { words: ['I','went','to','the','beach','yesterday'], answer: 'I went to the beach yesterday' },
-  { words: ['She','did','not','finish','her','homework'], answer: 'She did not finish her homework' },
-  { words: ['They','were','very','happy','last','night'], answer: 'They were very happy last night' },
-  { words: ['Did','you','watch','the','football','match'], answer: 'Did you watch the football match?' }
+const SLIDES = [
+  { t:'Apa itu Simple Past Tense?', b:['Kejadian yang <b>sudah selesai</b> di masa lalu','Penanda: <b>yesterday, last week, two days ago</b>'], d:7000 },
+  { t:'Regular Verbs', b:['Tambah <b>-ed</b> pada bentuk dasar','play → <b>played</b> · study → <b>studied</b>'], d:7000 },
+  { t:'Irregular Verbs', b:['Bentuknya berubah, harus dihafal','go → <b>went</b> · eat → <b>ate</b> · buy → <b>bought</b>'], d:7000 },
+  { t:'Kalimat Verbal', b:['(+) S + <b>V2</b>','(−) S + <b>did not</b> + V1','(?) <b>Did</b> + S + V1 ?'], d:8000 },
+  { t:'Kalimat Nominal', b:['(+) S + <b>was / were</b>','(−) S + <b>was not / were not</b>','(?) <b>Was / Were</b> + S ?'], d:7000 },
+  { t:'Ayo Menulis Recount', b:['Orientation → Events → Reorientation','Gunakan <b>Simple Past Tense</b> secara konsisten'], d:7000 }
+];
+const TOTAL = SLIDES.reduce((a, s) => a + s.d, 0);
+let vidElapsed = 0, vidPlaying = false, vidTimer = null, vidLastSlide = -1;
+
+const vidSlide = document.getElementById('vidSlide');
+const vidBar = document.getElementById('vidBar');
+const vidTime = document.getElementById('vidTime');
+const vidPlay = document.getElementById('vidPlay');
+const vidVoice = document.getElementById('vidVoice');
+
+function fmt(ms) {
+  const s = Math.floor(ms / 1000);
+  return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+function slideIndexAt(ms) {
+  let acc = 0;
+  for (let i = 0; i < SLIDES.length; i++) {
+    acc += SLIDES[i].d;
+    if (ms < acc) return i;
+  }
+  return SLIDES.length - 1;
+}
+function renderSlide(i) {
+  const s = SLIDES[i];
+  vidSlide.innerHTML = `<div class="st">Bagian ${i + 1} dari ${SLIDES.length}</div>
+    <h4>${s.t}</h4><ul>${s.b.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  vidSlide.style.animation = 'none';
+  void vidSlide.offsetWidth;
+  vidSlide.style.animation = '';
+  if (vidVoice.checked) speak(s.t + '. ' + s.b.map(x => x.replace(/<[^>]+>/g, '')).join('. '));
+}
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'id-ID'; u.rate = 0.95;
+  window.speechSynthesis.speak(u);
+}
+function tickVideo() {
+  vidElapsed += 100;
+  if (vidElapsed >= TOTAL) { vidElapsed = TOTAL; stopVideo(); renderSlide(SLIDES.length - 1); }
+  const idx = slideIndexAt(vidElapsed);
+  if (idx !== vidLastSlide) { vidLastSlide = idx; renderSlide(idx); }
+  vidBar.style.width = (vidElapsed / TOTAL * 100) + '%';
+  vidTime.textContent = fmt(vidElapsed) + ' / ' + fmt(TOTAL);
+}
+function startVideo() {
+  if (vidElapsed >= TOTAL) { vidElapsed = 0; vidLastSlide = -1; }
+  vidPlaying = true;
+  vidPlay.textContent = '❚❚';
+  vidTimer = setInterval(tickVideo, 100);
+}
+function stopVideo() {
+  vidPlaying = false;
+  vidPlay.textContent = '▶';
+  clearInterval(vidTimer);
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+}
+vidPlay.addEventListener('click', () => { vidPlaying ? stopVideo() : startVideo(); });
+vidTime.textContent = '0:00 / ' + fmt(TOTAL);
+renderSlide(0);
+
+/* ============================================================
+   4. AUDIO LISTENING (Text-to-Speech)
+   ============================================================ */
+const AUDIO_TEXT = "Last holiday, my family and I went to Yogyakarta. We visited Borobudur temple early in the morning. Then, we ate gudeg at a small restaurant near Malioboro. In the evening, I bought some batik shirts for my friends. We went back home by train and arrived at midnight.";
+
+const LISTEN_Q = [
+  { q:'Where did the speaker go last holiday?', o:['Bandung','Yogyakarta','Surabaya'], a:1 },
+  { q:'What did they visit early in the morning?', o:['Malioboro street','Prambanan temple','Borobudur temple'], a:2 },
+  { q:'What did the speaker buy?', o:['Batik shirts','Local food','Train tickets'], a:0 }
 ];
 
+const audioStatus = document.getElementById('audioStatus');
+const audioPlayBtn = document.getElementById('audioPlay');
+const listenQuiz = document.getElementById('listenQuiz');
+
+audioPlayBtn.addEventListener('click', () => {
+  if (!('speechSynthesis' in window)) {
+    audioStatus.textContent = 'Browser tidak mendukung Text-to-Speech.';
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(AUDIO_TEXT);
+  u.lang = 'en-US'; u.rate = 0.9;
+  u.onstart = () => { audioStatus.textContent = '▶ Sedang memutar audio…'; audioPlayBtn.textContent = '❚❚'; };
+  u.onend = () => { audioStatus.textContent = '✓ Selesai. Jawab pertanyaan di bawah.'; audioPlayBtn.textContent = '▶'; };
+  window.speechSynthesis.speak(u);
+});
+
+listenQuiz.innerHTML = LISTEN_Q.map((item, i) => `
+  <div class="q-card" style="box-shadow:none;border-color:#e2e8f0">
+    <span class="q-num">PERTANYAAN ${i + 1}</span>
+    <div class="q-text">${item.q}</div>
+    <div class="opts" data-lq="${i}">
+      ${item.o.map((o, j) => `<button class="opt" type="button" data-li="${i}" data-lo="${j}">
+        <span class="letter">${'ABC'[j]}</span><span>${o}</span></button>`).join('')}
+    </div>
+    <div class="explain" data-lexp="${i}"></div>
+  </div>`).join('');
+
+listenQuiz.addEventListener('click', (e) => {
+  const btn = e.target.closest('.opt');
+  if (!btn || btn.disabled) return;
+  const qi = +btn.dataset.li, oi = +btn.dataset.lo;
+  const item = LISTEN_Q[qi];
+  const wrap = document.querySelector(`[data-lq="${qi}"]`);
+  [...wrap.querySelectorAll('.opt')].forEach(b => {
+    b.disabled = true;
+    if (+b.dataset.lo === item.a) b.classList.add('correct');
+  });
+  if (oi !== item.a) btn.classList.add('wrong');
+  const exp = document.querySelector(`[data-lexp="${qi}"]`);
+  exp.innerHTML = oi === item.a ? '✅ Tepat! Jawaban sesuai isi rekaman.' : '❌ Belum tepat. Dengarkan kembali rekamannya.';
+  exp.classList.add('show');
+});
+
+/* ============================================================
+   5. LATIHAN A — KALIMAT RUMPANG
+   ============================================================ */
+const FILL = [
+  { q:'I ___ (visit) my grandmother last weekend.', a:['visited'] },
+  { q:'They ___ (not / come) to the party two days ago.', a:['did not come',"didn't come"] },
+  { q:'___ (be) you at home last night?', a:['were'] },
+  { q:'He ___ (buy) a new book yesterday.', a:['bought'] },
+  { q:'We ___ (be) very tired after the trip.', a:['were'] },
+  { q:'She ___ (study) English last night.', a:['studied'] }
+];
+const fillList = document.getElementById('fillList');
+const fillScoreEl = document.getElementById('fillScore');
+
+function norm(s) { return s.toLowerCase().replace(/[.]/g, '').replace(/\s+/g, ' ').trim(); }
+
+function buildFill() {
+  fillList.innerHTML = FILL.map((f, i) => `
+    <div class="fill-item">
+      <div class="fill-q">${i + 1}. ${f.q.replace('___', `<input class="fill-in" data-fill="${i}" placeholder="…" autocomplete="off">`)}</div>
+      <div class="fill-fb" data-ffb="${i}"></div>
+    </div>`).join('');
+  fillScoreEl.textContent = 'Skor: 0 / ' + FILL.length;
+}
+
+document.getElementById('fillCheck').addEventListener('click', () => {
+  let correct = 0;
+  FILL.forEach((f, i) => {
+    const input = document.querySelector(`[data-fill="${i}"]`);
+    const fb = document.querySelector(`[data-ffb="${i}"]`);
+    const val = norm(input.value);
+    const ok = f.a.some(ans => norm(ans) === val);
+    input.classList.remove('ok', 'no');
+    if (ok) { input.classList.add('ok'); correct++; }
+    else input.classList.add('no');
+    fb.className = 'fill-fb show ' + (ok ? 'good' : 'bad');
+    fb.textContent = ok ? '✓ Benar' : '✗ Jawaban benar: ' + f.a[0];
+  });
+  fillScoreEl.textContent = 'Skor: ' + correct + ' / ' + FILL.length;
+});
+document.getElementById('fillReset').addEventListener('click', buildFill);
+buildFill();
+
+/* ============================================================
+   6. LATIHAN B — SUSUN KATA
+   ============================================================ */
+const ARRANGE = [
+  { words:['I','went','to','the','beach','yesterday'], answer:'I went to the beach yesterday' },
+  { words:['She','did','not','finish','her','homework'], answer:'She did not finish her homework' },
+  { words:['They','were','very','happy','last','night'], answer:'They were very happy last night' },
+  { words:['Did','you','watch','the','football','match'], answer:'Did you watch the football match?' }
+];
 const arrangeList = document.getElementById('arrangeList');
 const arrScoreEl = document.getElementById('arrScore');
 let arrSolved = new Set();
 
-const normalize = s => s.toLowerCase().replace(/[.,!?]/g, '').replace(/\s+/g, ' ').trim();
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
+function shuffle(a) {
+  const x = [...a];
+  for (let i = x.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    [x[i], x[j]] = [x[j], x[i]];
   }
-  return a;
+  return x;
 }
-
 function buildArrange() {
   arrSolved = new Set();
-  arrScoreEl.textContent = `0 / ${ARRANGE.length}`;
+  arrScoreEl.textContent = '0 / ' + ARRANGE.length;
   arrangeList.innerHTML = '';
-
   ARRANGE.forEach((item, idx) => {
     const card = document.createElement('div');
     card.className = 'arr-item';
     card.innerHTML = `
       <div class="arr-q">Kalimat ${idx + 1}</div>
       <div class="pool" data-pool="${idx}"></div>
-      <div class="answer-box" data-answer="${idx}"></div>
-      <div class="arr-feedback" data-fb="${idx}"></div>
-      <div style="margin-top:12px;display:flex;gap:9px;flex-wrap:wrap">
-        <button class="btn btn-primary btn-sm" data-check="${idx}">Periksa</button>
-        <button class="btn btn-outline btn-sm" data-reset="${idx}">Acak Ulang</button>
+      <div class="abox" data-abox="${idx}"></div>
+      <div class="arr-fb" data-afb="${idx}"></div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-sm" data-acheck="${idx}">Periksa</button>
+        <button class="btn btn-outline btn-sm" data-areset="${idx}">Acak Ulang</button>
       </div>`;
     arrangeList.appendChild(card);
-
     fillPool(idx, shuffle(item.words));
   });
 }
-
-function fillPool(idx, words) {
-  const pool = document.querySelector(`[data-pool="${idx}"]`);
-  const answer = document.querySelector(`[data-answer="${idx}"]`);
-  pool.innerHTML = '';
-  answer.innerHTML = '';
-  answer.className = 'answer-box';
-
-  words.forEach(w => {
-    const b = document.createElement('button');
-    b.className = 'word';
-    b.type = 'button';
-    b.textContent = w;
-    b.addEventListener('click', () => {
-      if (arrSolved.has(idx)) return;
-      answer.appendChild(b);
-      answer.classList.add('filled');
-      b.onclick = () => {
-        if (arrSolved.has(idx)) return;
-        pool.appendChild(b);
-        b.onclick = null;
-        b.addEventListener('click', () => moveToAnswer(b, idx));
-        if (!answer.children.length) answer.classList.remove('filled');
-      };
-    });
-    b.addEventListener('click', () => moveToAnswer(b, idx));
-    pool.appendChild(b);
-  });
-}
-
-function moveToAnswer(b, idx) {
-  if (arrSolved.has(idx)) return;
-  const answer = document.querySelector(`[data-answer="${idx}"]`);
-  answer.appendChild(b);
-  answer.classList.add('filled');
+function attachMove(b, idx, fromPool) {
   b.onclick = () => {
     if (arrSolved.has(idx)) return;
     const pool = document.querySelector(`[data-pool="${idx}"]`);
-    pool.appendChild(b);
-    b.onclick = () => moveToAnswer(b, idx);
+    const box = document.querySelector(`[data-abox="${idx}"]`);
+    if (fromPool) { box.appendChild(b); box.classList.add('filled'); attachMove(b, idx, false); }
+    else { pool.appendChild(b); attachMove(b, idx, true); }
+    if (!box.children.length) box.classList.remove('filled');
   };
 }
-
+function fillPool(idx, words) {
+  const pool = document.querySelector(`[data-pool="${idx}"]`);
+  const box = document.querySelector(`[data-abox="${idx}"]`);
+  pool.innerHTML = ''; box.innerHTML = ''; box.className = 'abox';
+  words.forEach(w => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'word'; b.textContent = w;
+    attachMove(b, idx, true);
+    pool.appendChild(b);
+  });
+}
 arrangeList.addEventListener('click', (e) => {
-  const checkBtn = e.target.closest('[data-check]');
-  const resetBtn = e.target.closest('[data-reset]');
-
-  if (checkBtn) {
-    const idx = +checkBtn.dataset.check;
+  const c = e.target.closest('[data-acheck]');
+  const r = e.target.closest('[data-areset]');
+  if (c) {
+    const idx = +c.dataset.acheck;
     if (arrSolved.has(idx)) return;
-    const answer = document.querySelector(`[data-answer="${idx}"]`);
-    const fb = document.querySelector(`[data-fb="${idx}"]`);
-    const built = [...answer.children].map(c => c.textContent).join(' ');
-    const target = ARRANGE[idx].answer;
-
-    if (normalize(built) === normalize(target)) {
-      answer.classList.add('correct');
-      fb.className = 'arr-feedback show good';
-      fb.textContent = '✓ Tepat sekali! ' + target;
+    const box = document.querySelector(`[data-abox="${idx}"]`);
+    const fb = document.querySelector(`[data-afb="${idx}"]`);
+    const built = [...box.children].map(x => x.textContent).join(' ');
+    if (norm(built) === norm(ARRANGE[idx].answer)) {
+      box.classList.add('correct');
+      fb.className = 'arr-fb show good';
+      fb.textContent = '✓ Tepat sekali! ' + ARRANGE[idx].answer;
       arrSolved.add(idx);
-      arrScoreEl.textContent = `${arrSolved.size} / ${ARRANGE.length}`;
+      arrScoreEl.textContent = arrSolved.size + ' / ' + ARRANGE.length;
     } else {
-      answer.classList.add('wrong');
-      fb.className = 'arr-feedback show bad';
-      fb.textContent = '✗ Belum tepat. Coba periksa urutan subjek dan kata kerjanya.';
+      box.classList.add('wrong');
+      fb.className = 'arr-fb show bad';
+      fb.textContent = '✗ Belum tepat. Periksa urutan subjek dan kata kerjanya.';
     }
   }
-
-  if (resetBtn) {
-    const idx = +resetBtn.dataset.reset;
+  if (r) {
+    const idx = +r.dataset.areset;
     arrSolved.delete(idx);
-    arrScoreEl.textContent = `${arrSolved.size} / ${ARRANGE.length}`;
-    document.querySelector(`[data-fb="${idx}"]`).className = 'arr-feedback';
+    arrScoreEl.textContent = arrSolved.size + ' / ' + ARRANGE.length;
+    document.querySelector(`[data-afb="${idx}"]`).className = 'arr-fb';
     fillPool(idx, shuffle(ARRANGE[idx].words));
   }
 });
-
 document.getElementById('arrReset').addEventListener('click', buildArrange);
 buildArrange();
 
 /* ============================================================
-   4. KUIS
+   7. LATIHAN C — ANALISIS KESALAHAN
+   ============================================================ */
+const ERR_TOKENS = [
+  { w:'went', wrong:false },
+  { w:'was', wrong:true, fix:'were' },
+  { w:'come', wrong:true, fix:'came' },
+  { w:'cooked', wrong:false },
+  { w:'buy', wrong:true, fix:'bought' },
+  { w:'watched', wrong:false },
+  { w:'sing', wrong:true, fix:'sang' },
+  { w:'did not forget', wrong:false }
+];
+const errText = document.getElementById('errText');
+const errFeedback = document.getElementById('errFeedback');
+const errScore = document.getElementById('errScore');
+let errPicked = new Set();
+
+function renderErr() {
+  errPicked = new Set();
+  errFeedback.innerHTML = '';
+  errScore.textContent = '';
+  errText.innerHTML = `Last weekend, I `;
+  const parts = [];
+  ERR_TOKENS.forEach((t, i) => {
+    const b = `<button class="etok" data-etok="${i}">${t.w}</button>`;
+    if (i === 0) errText.innerHTML += b;
+    else if (i === 1) errText.innerHTML += ' to my grandmother\'s house in Bondowoso. We ' + b;
+    else if (i === 2) errText.innerHTML += ' very happy because all family members ' + b;
+    else if (i === 3) errText.innerHTML += ' to the reunion. My mother ' + b;
+    else if (i === 4) errText.innerHTML += ' our favorite soup, and my father ' + b;
+    else if (i === 5) errText.innerHTML += ' some fruits. In the evening, we ' + b;
+    else if (i === 6) errText.innerHTML += ' old photos together and we ' + b;
+    else errText.innerHTML += ' traditional songs. I ' + b + ' that wonderful night.';
+  });
+}
+errText.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-etok]');
+  if (!b || b.dataset.locked) return;
+  const i = +b.dataset.etok;
+  if (errPicked.has(i)) { errPicked.delete(i); b.classList.remove('picked'); }
+  else { errPicked.add(i); b.classList.add('picked'); }
+});
+document.getElementById('errCheck').addEventListener('click', () => {
+  const wrongIdx = ERR_TOKENS.map((t, i) => t.wrong ? i : -1).filter(i => i >= 0);
+  const hits = wrongIdx.filter(i => errPicked.has(i)).length;
+  const falsePos = [...errPicked].filter(i => !ERR_TOKENS[i].wrong).length;
+
+  document.querySelectorAll('[data-etok]').forEach(b => {
+    const i = +b.dataset.etok;
+    b.dataset.locked = '1';
+    b.classList.remove('picked');
+    if (ERR_TOKENS[i].wrong) b.classList.add('reveal-ok');
+    else if (errPicked.has(i)) b.classList.add('reveal-miss');
+  });
+
+  errScore.textContent = `Benar ${hits}/${wrongIdx.length}`;
+  errFeedback.innerHTML = `
+    <div class="note ${hits === wrongIdx.length && falsePos === 0 ? 'ok' : 'warn'}">
+      <b>Hasil analisis:</b> menemukan ${hits} dari ${wrongIdx.length} kesalahan
+      ${falsePos ? ` · ${falsePos} kata benar yang ikut ditandai` : ''}.<br>
+      <b>Perbaikan:</b> was → <b>were</b> · come → <b>came</b> · buy → <b>bought</b> · sing → <b>sang</b>.
+      Kata <i>went, cooked, watched, did not forget</i> sudah benar.
+    </div>`;
+});
+document.getElementById('errReset').addEventListener('click', renderErr);
+renderErr();
+
+/* ============================================================
+   8. FORUM DISKUSI + PEER CORRECTION
+   ============================================================ */
+let posts = [];
+try { posts = JSON.parse(localStorage.getItem('spt_forum') || '[]'); } catch (e) { posts = []; }
+
+const forumList = document.getElementById('forumList');
+const forumInput = document.getElementById('forumInput');
+const forumHint = document.getElementById('forumHint');
+
+function savePosts() { try { localStorage.setItem('spt_forum', JSON.stringify(posts)); } catch (e) {} }
+
+function renderPosts() {
+  if (!posts.length) {
+    forumList.innerHTML = '<div class="check pending" style="justify-content:center"><span class="ic">·</span><span>Belum ada postingan. Jadilah yang pertama menulis!</span></div>';
+    return;
+  }
+  forumList.innerHTML = posts.map(p => `
+    <div class="post">
+      <div class="ph"><span class="av">K</span><span class="nm">Kamu</span><span class="tm">${p.time}</span></div>
+      <div class="tx">${p.text}</div>
+      <span class="badge">menunggu koreksi</span>
+      ${p.corrections.map(c => `<div class="corr">💬 <b>Koreksi:</b> ${c.text}</div>`).join('')}
+      <div class="corr-row">
+        <input type="text" placeholder="Tulis koreksi sopan…" data-cin="${p.id}">
+        <button class="btn btn-outline btn-sm" data-csend="${p.id}">Kirim</button>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('forumPost').addEventListener('click', () => {
+  const text = forumInput.value.trim();
+  forumHint.textContent = '';
+  forumHint.style.color = 'var(--err)';
+
+  if (text.split(/\s+/).length < 4) {
+    forumHint.textContent = 'Tulis minimal satu kalimat lengkap.';
+    return;
+  }
+  if (!/\b(yesterday|last|ago|when i was|that day)\b/i.test(text)) {
+    forumHint.textContent = 'Tambahkan penanda waktu lampau, misalnya “last holiday” atau “yesterday”.';
+    return;
+  }
+  const hasPast = /\b\w+ed\b|\b(went|ate|saw|bought|took|made|came|got|had|did|was|were|swam|met|sang|drank|flew|wrote)\b/i.test(text);
+  if (!hasPast) {
+    forumHint.textContent = 'Kalimatmu belum memakai kata kerja bentuk kedua (Verb 2).';
+    return;
+  }
+
+  const now = new Date();
+  posts.unshift({
+    id: Date.now(),
+    text: text,
+    time: now.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ' · ' +
+          now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
+    corrections: []
+  });
+  savePosts();
+  renderPosts();
+  forumInput.value = '';
+  forumHint.style.color = 'var(--ok)';
+  forumHint.textContent = '✓ Kalimat berhasil dikirim ke forum!';
+});
+
+forumList.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-csend]');
+  if (!btn) return;
+  const id = +btn.dataset.csend;
+  const input = document.querySelector(`[data-cin="${id}"]`);
+  const text = input.value.trim();
+  if (!text) return;
+  const post = posts.find(p => p.id === id);
+  if (post) { post.corrections.push({ text }); savePosts(); renderPosts(); }
+});
+
+document.getElementById('forumClear').addEventListener('click', () => {
+  if (!confirm('Hapus semua postingan forum?')) return;
+  posts = []; savePosts(); renderPosts();
+});
+renderPosts();
+
+/* ============================================================
+   9. KUIS FORMATIF
    ============================================================ */
 const QUIZ = [
-  {
-    q: 'My family and I ___ to Bali island for vacation last month.',
-    opts: ['Go', 'Goes', 'Gone', 'Went', 'Walking'],
-    a: 3,
-    exp: '"Last month" menandakan kejadian lampau. "Go" adalah irregular verb: go – went – gone. Bentuk kedua (Verb 2) yang benar adalah "went".'
-  },
-  {
-    q: 'She did not ___ her English assignment yesterday evening because she was sick.',
-    opts: ['Finish', 'Finishes', 'Finished', 'Finishing', 'Has finished'],
-    a: 0,
-    exp: 'Setelah "did not", kata kerja harus kembali ke bentuk dasar (Verb 1). Jadi jawabannya "finish", bukan "finished".'
-  },
-  {
-    q: 'Mark: "Did you watch the football match last night?"<br>John: "No, I didn\'t. I ___ for my history examination."',
-    opts: ['Study', 'Studied', 'Am studying', 'Studies', 'Have studied'],
-    a: 1,
-    exp: 'Kalimat ini adalah kalimat positif lampau yang berdiri sendiri (bukan setelah "did"). Verb 2 dari "study" adalah "studied" (y → ied).'
-  },
-  {
-    q: 'We ___ very happy to meet our old elementary school teachers at the reunion two days ago.',
-    opts: ['Was', 'Were', 'Is', 'Are', 'Am'],
-    a: 1,
-    exp: 'Ini kalimat nominal lampau. Subjek "We" (jamak) menggunakan "were". Penanda waktunya "two days ago".'
-  },
-  {
-    q: 'Choose the correct negative sentence of Simple Past Tense below!',
-    opts: [
-      'They were not come to my house yesterday.',
-      'They did not came to my house yesterday.',
-      'They did not come to my house yesterday.',
-      'They does not come to my house yesterday.',
-      'They did not coming to my house yesterday.'
-    ],
-    a: 2,
-    exp: 'Rumus negatif verbal: Subject + did not + Verb 1. Jadi "They did not come to my house yesterday" adalah satu-satunya yang benar.'
-  }
+  { q:'My family and I ___ to Bali island for vacation last month.',
+    o:['Go','Goes','Gone','Went','Walking'], a:3,
+    e:'"Last month" menandakan kejadian lampau. Go adalah irregular verb: go – went – gone. Bentuk kedua yang benar adalah "went".' },
+  { q:'She did not ___ her English assignment yesterday evening because she was sick.',
+    o:['Finish','Finishes','Finished','Finishing','Has finished'], a:0,
+    e:'Setelah "did not", kata kerja kembali ke bentuk dasar (Verb 1). Jadi jawabannya "finish", bukan "finished".' },
+  { q:'Mark: "Did you watch the football match last night?"<br>John: "No, I didn\'t. I ___ for my history examination."',
+    o:['Study','Studied','Am studying','Studies','Have studied'], a:1,
+    e:'Kalimat positif lampau yang berdiri sendiri menggunakan Verb 2. Verb 2 dari "study" adalah "studied" (y → ied).' },
+  { q:'We ___ very happy to meet our old elementary school teachers at the reunion two days ago.',
+    o:['Was','Were','Is','Are','Am'], a:1,
+    e:'Kalimat nominal lampau. Subjek "We" (jamak) menggunakan "were". Penanda waktu: "two days ago".' },
+  { q:'Choose the correct negative sentence of Simple Past Tense below!',
+    o:['They were not come to my house yesterday.','They did not came to my house yesterday.',
+       'They did not come to my house yesterday.','They does not come to my house yesterday.',
+       'They did not coming to my house yesterday.'], a:2,
+    e:'Rumus negatif verbal: Subject + did not + Verb 1. Hanya "They did not come to my house yesterday" yang benar.' }
 ];
-
 const quizList = document.getElementById('quizList');
 const scoreBox = document.getElementById('scoreBox');
 const scoreNum = document.getElementById('scoreNum');
 const scoreMsg = document.getElementById('scoreMsg');
-let quizCorrect = 0;
-let quizAnswered = 0;
-const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+const LETTERS = ['A','B','C','D','E'];
+let quizCorrect = 0, quizAnswered = 0;
 
 function buildQuiz() {
-  quizCorrect = 0;
-  quizAnswered = 0;
+  quizCorrect = 0; quizAnswered = 0;
   scoreBox.classList.remove('show');
-  quizList.innerHTML = '';
-
-  QUIZ.forEach((item, i) => {
-    const card = document.createElement('div');
-    card.className = 'q-card';
-    card.innerHTML = `
+  quizList.innerHTML = QUIZ.map((item, i) => `
+    <div class="q-card">
       <span class="q-num">SOAL ${i + 1} DARI ${QUIZ.length}</span>
       <div class="q-text">${item.q}</div>
-      <div class="opts" data-opts="${i}">
-        ${item.opts.map((o, j) => `
-          <button class="opt" type="button" data-q="${i}" data-o="${j}">
-            <span class="letter">${LETTERS[j]}</span><span>${o}</span>
-          </button>`).join('')}
+      <div class="opts" data-qo="${i}">
+        ${item.o.map((o, j) => `<button class="opt" type="button" data-qi="${i}" data-oo="${j}">
+          <span class="letter">${LETTERS[j]}</span><span>${o}</span></button>`).join('')}
       </div>
-      <div class="explain" data-exp="${i}"></div>`;
-    quizList.appendChild(card);
-  });
+      <div class="explain" data-qexp="${i}"></div>
+    </div>`).join('');
 }
 
 quizList.addEventListener('click', (e) => {
   const btn = e.target.closest('.opt');
   if (!btn || btn.disabled) return;
-
-  const qi = +btn.dataset.q;
-  const oi = +btn.dataset.o;
+  const qi = +btn.dataset.qi, oi = +btn.dataset.oo;
   const item = QUIZ[qi];
-  const wrap = document.querySelector(`[data-opts="${qi}"]`);
-  const buttons = [...wrap.querySelectorAll('.opt')];
-
-  buttons.forEach(b => {
+  const wrap = document.querySelector(`[data-qo="${qi}"]`);
+  [...wrap.querySelectorAll('.opt')].forEach(b => {
     b.disabled = true;
-    if (+b.dataset.o === item.a) b.classList.add('correct');
+    if (+b.dataset.oo === item.a) b.classList.add('correct');
   });
   if (oi !== item.a) btn.classList.add('wrong');
 
-  const exp = document.querySelector(`[data-exp="${qi}"]`);
-  exp.innerHTML = `<b>${oi === item.a ? '✅ Benar!' : '❌ Belum tepat.'}</b> ${item.exp}`;
+  const exp = document.querySelector(`[data-qexp="${qi}"]`);
+  exp.innerHTML = `<b>${oi === item.a ? '✅ Benar!' : '❌ Belum tepat.'}</b> ${item.e}`;
   exp.classList.add('show');
 
   if (oi === item.a) quizCorrect++;
   quizAnswered++;
 
   if (quizAnswered === QUIZ.length) {
-    const finalScore = quizCorrect * 20;
-    scoreNum.textContent = finalScore;
-    let msg = '';
-    if (finalScore === 100) msg = 'Sempurna! Kamu sudah sangat menguasai Simple Past Tense. 🎉';
-    else if (finalScore >= 80) msg = 'Hebat! Sedikit lagi menuju sempurna. 💪';
-    else if (finalScore >= 60) msg = 'Bagus! Ulangi bagian materi yang masih sulit, ya.';
-    else msg = 'Jangan menyerah — baca kembali tab Kalimat Verbal & Nominal, lalu coba lagi.';
-    scoreMsg.textContent = msg;
+    const final = quizCorrect * 20;
+    scoreNum.textContent = final;
+    scoreMsg.textContent =
+      final === 100 ? 'Sempurna! Kamu sudah sangat menguasai Simple Past Tense. 🎉' :
+      final >= 80 ? 'Hebat! Sedikit lagi menuju sempurna. 💪' :
+      final >= 60 ? 'Bagus! Ulangi bagian materi yang masih sulit, ya.' :
+      'Jangan menyerah — baca kembali tab Kalimat Verbal & Nominal, lalu coba lagi.';
     scoreBox.classList.add('show');
     scoreBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 });
-
 document.getElementById('quizReset').addEventListener('click', buildQuiz);
 buildQuiz();
 
 /* ============================================================
-   5. TUGAS MENULIS + PENGECEK MANDIRI
+   10. TUGAS MENULIS + PENGECEK MANDIRI
    ============================================================ */
 const essay = document.getElementById('essay');
 const wordCountEl = document.getElementById('wordCount');
@@ -970,95 +1504,72 @@ const charCountEl = document.getElementById('charCount');
 const checkList = document.getElementById('checkList');
 
 const PAST_IRREGULAR = ['went','ate','saw','bought','took','made','came','got','gave','had','was','were','did','said','told','thought','found','felt','left','wrote','read','slept','swam','met','ran','sang','drank','drove','flew','began','brought','caught','chose','forgot','heard','kept','knew','lost','paid','sent','sat','spoke','spent','stood','taught','understood','wore','won','broke','built','drew','rode','sold','showed','threw','grew','fell'];
-
 const BASE_VERBS = ['go','eat','see','buy','take','make','come','get','give','have','do','write','read','sleep','swim','meet','run','sing','drink','drive','fly','bring','think','tell','say','find','feel','leave','keep','know','lose','pay','send','sit','speak','spend','stand','teach','wear','win','break','build','draw','hear','hold','hurt','mean','put','ride','sell','show','shut','begin','forget','choose','fall','grow','throw','understand'];
-
 const TIME_MARKERS = /\b(yesterday|last\s+(night|week|month|year|summer|holiday|weekend)|ago|when\s+i\s+was|in\s+(19|20)\d{2}|that\s+day|once|one\s+day|at\s+that\s+time)\b/i;
 
 function updateMeta() {
-  const text = essay.value.trim();
-  const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
-  const sentences = text ? text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean).length : 0;
-  wordCountEl.textContent = words + ' kata';
-  sentCountEl.textContent = sentences + ' kalimat';
-  charCountEl.textContent = text.length + ' karakter';
+  const t = essay.value.trim();
+  const w = t ? t.split(/\s+/).filter(Boolean).length : 0;
+  const s = t ? t.split(/[.!?]+/).map(x => x.trim()).filter(Boolean).length : 0;
+  wordCountEl.textContent = w + ' kata';
+  sentCountEl.textContent = s + ' kalimat';
+  charCountEl.textContent = t.length + ' karakter';
 }
-
 essay.addEventListener('input', () => {
   updateMeta();
   try { localStorage.setItem('spt_essay', essay.value); } catch (e) {}
 });
+try { const sv = localStorage.getItem('spt_essay'); if (sv) { essay.value = sv; } } catch (e) {}
+updateMeta();
 
-try {
-  const saved = localStorage.getItem('spt_essay');
-  if (saved) { essay.value = saved; updateMeta(); }
-} catch (e) { updateMeta(); }
-
-function addCheck(list, pass, text) {
+function addCheck(pass, text) {
   const div = document.createElement('div');
   div.className = 'check ' + (pass ? 'pass' : 'fail');
   div.innerHTML = `<span class="ic">${pass ? '✓' : '!'}</span><span>${text}</span>`;
-  list.appendChild(div);
+  checkList.appendChild(div);
 }
-
 document.getElementById('checkEssay').addEventListener('click', () => {
   const raw = essay.value.trim();
   checkList.innerHTML = '';
-
   if (!raw) {
     checkList.innerHTML = '<div class="check pending"><span class="ic">·</span><span>Tulisanmu masih kosong. Yuk mulai menulis!</span></div>';
     return;
   }
-
   const words = raw.split(/\s+/).filter(Boolean);
   const sentences = raw.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
   const lower = raw.toLowerCase();
 
-  // 1. Panjang tulisan
-  addCheck(checkList, words.length >= 35,
-    `Panjang tulisan: <b>${words.length} kata</b> ${words.length >= 35 ? '(sudah memadai)' : '(disarankan minimal ±35 kata untuk 5–7 kalimat)'}`);
-
-  // 2. Jumlah kalimat
-  addCheck(checkList, sentences.length >= 5 && sentences.length <= 9,
+  addCheck(words.length >= 35,
+    `Panjang tulisan: <b>${words.length} kata</b> ${words.length >= 35 ? '(memadai)' : '(disarankan minimal ±35 kata)'}`);
+  addCheck(sentences.length >= 5 && sentences.length <= 9,
     `Jumlah kalimat: <b>${sentences.length}</b> — target 5–7 kalimat`);
-
-  // 3. Penanda waktu lampau
-  addCheck(checkList, TIME_MARKERS.test(lower),
+  addCheck(TIME_MARKERS.test(lower),
     'Terdapat penanda waktu lampau (mis. <i>yesterday, last week, two days ago</i>)');
 
-  // 4. Kata kerja lampau
   const hasIrregular = PAST_IRREGULAR.some(v => new RegExp('\\b' + v + '\\b', 'i').test(lower));
   const hasRegular = /\b\w{3,}ed\b/i.test(lower);
-  addCheck(checkList, hasIrregular || hasRegular,
-    'Menggunakan kata kerja bentuk kedua (Verb 2) — baik regular (<i>-ed</i>) maupun irregular');
+  addCheck(hasIrregular || hasRegular,
+    'Menggunakan kata kerja bentuk kedua (Verb 2) — regular (<i>-ed</i>) maupun irregular');
 
-  // 5. Kesalahan: did + Verb 2
   let didError = false;
-  const didMatches = lower.matchAll(/\b(?:did|didn'?t)\s+([a-z]+)/g);
-  for (const m of didMatches) {
+  for (const m of lower.matchAll(/\b(?:did|didn'?t)\s+([a-z]+)/g)) {
     if (PAST_IRREGULAR.includes(m[1]) || /\w{3,}ed$/.test(m[1])) { didError = true; break; }
   }
-  addCheck(checkList, !didError,
-    didError
-      ? 'Ditemukan kesalahan: setelah <b>did / did not</b> harus memakai <b>Verb 1</b>, bukan Verb 2 (contoh salah: “did not went”)'
-      : 'Tidak ditemukan kesalahan “did + Verb 2” ✔');
+  addCheck(!didError, didError
+    ? 'Kesalahan: setelah <b>did / did not</b> harus memakai <b>Verb 1</b>, bukan Verb 2 (mis. “did not went”)'
+    : 'Tidak ditemukan kesalahan “did + Verb 2” ✔');
 
-  // 6. Kesalahan: was/were + Verb 1
   let beError = false;
-  const beMatches = lower.matchAll(/\b(?:was|were)\s+([a-z]+)/g);
-  for (const m of beMatches) {
+  for (const m of lower.matchAll(/\b(?:was|were)\s+([a-z]+)/g)) {
     if (BASE_VERBS.includes(m[1])) { beError = true; break; }
   }
-  addCheck(checkList, !beError,
-    beError
-      ? 'Ditemukan kesalahan: <b>was/were</b> tidak boleh diikuti kata kerja dasar (contoh salah: “was go”)'
-      : 'Tidak ditemukan kesalahan “was/were + Verb 1” ✔');
+  addCheck(!beError, beError
+    ? 'Kesalahan: <b>was/were</b> tidak boleh diikuti kata kerja dasar (mis. “was go”)'
+    : 'Tidak ditemukan kesalahan “was/were + Verb 1” ✔');
 
-  // 7. Kata ganti orang pertama
-  addCheck(checkList, /\b(i|we|my|our|me|us)\b/i.test(lower),
+  addCheck(/\b(i|we|my|our|me|us)\b/i.test(lower),
     'Menggunakan sudut pandang orang pertama (I / we / my / our) — ciri Personal Recount');
 
-  // Kesimpulan
   const total = checkList.querySelectorAll('.check').length;
   const pass = checkList.querySelectorAll('.check.pass').length;
   const sum = document.createElement('div');
@@ -1066,16 +1577,32 @@ document.getElementById('checkEssay').addEventListener('click', () => {
   sum.style.marginTop = '6px';
   sum.innerHTML = pass === total
     ? '<b>🎉 Luar biasa!</b> Semua pemeriksaan lolos. Tulisanmu siap dikumpulkan.'
-    : `<b>${pass} dari ${total}</b> pemeriksaan lolos. Perbaiki poin yang bertanda <b>!</b> lalu periksa kembali.`;
+    : `<b>${pass} dari ${total}</b> pemeriksaan lolos. Perbaiki poin bertanda <b>!</b> lalu periksa kembali.`;
   checkList.appendChild(sum);
 });
-
 document.getElementById('clearEssay').addEventListener('click', () => {
   if (!confirm('Hapus seluruh tulisan?')) return;
-  essay.value = '';
-  updateMeta();
+  essay.value = ''; updateMeta();
   checkList.innerHTML = '<div class="check pending"><span class="ic">·</span><span>Tulis dulu paragrafmu, lalu klik <b>Periksa Tulisan</b>.</span></div>';
   try { localStorage.removeItem('spt_essay'); } catch (e) {}
+});
+
+/* ============================================================
+   11. REFLEKSI
+   ============================================================ */
+document.querySelectorAll('[data-ref]').forEach(t => {
+  try {
+    const v = localStorage.getItem('spt_ref_' + t.dataset.ref);
+    if (v) t.value = v;
+  } catch (e) {}
+});
+document.getElementById('refSave').addEventListener('click', () => {
+  document.querySelectorAll('[data-ref]').forEach(t => {
+    try { localStorage.setItem('spt_ref_' + t.dataset.ref, t.value); } catch (e) {}
+  });
+  const st = document.getElementById('refStatus');
+  st.textContent = '✓ Refleksi tersimpan di perangkatmu.';
+  setTimeout(() => { st.textContent = ''; }, 3000);
 });
 </script>
 </body>
