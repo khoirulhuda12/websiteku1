@@ -1,1 +1,1082 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Past Tense · E-Module Interaktif Kelas XI</title>
+<meta name="description" content="E-module interaktif Simple Past Tense untuk kelas XI SMA — materi, latihan, kuis, dan tugas menulis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#6366f1; --primary-dark:#4f46e5; --violet:#8b5cf6; --pink:#ec4899;
+  --cyan:#06b6d4; --ok:#10b981; --err:#ef4444; --warn:#f59e0b;
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --line:#e2e8f0;
+  --bg:#f7f8fc; --card:#fff; --radius:20px;
+  --shadow:0 4px 24px -10px rgba(15,23,42,.16);
+}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;
+  background:linear-gradient(90deg,var(--primary),var(--violet),var(--pink));
+  z-index:200;transition:width .08s linear}
 
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.84);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;white-space:nowrap;letter-spacing:-.01em}
+.brand .dot{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;color:#fff;
+  font-size:.72rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--pink));
+  box-shadow:0 6px 14px -6px rgba(99,102,241,.9)}
+.nav-links{display:flex;gap:5px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:700;
+  color:var(--muted);text-decoration:none;white-space:nowrap;transition:.2s}
+.nav-links a:hover{background:#eef2ff;color:var(--primary-dark)}
+.nav-links a.active{background:var(--ink);color:#fff}
+
+/* ---------- LAYOUT ---------- */
+section{max-width:1080px;margin:0 auto;padding:56px 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+  background:#eef2ff;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+h2.sec{font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.03em;line-height:1.2;margin-bottom:10px}
+.sec-desc{color:var(--muted);max-width:660px;margin-bottom:28px;font-size:.97rem}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow)}
+.card + .card{margin-top:16px}
+
+/* ---------- HERO ---------- */
+.hero-card{
+  background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 42%,#ec4899 100%);
+  border-radius:28px;padding:clamp(32px,6vw,58px);color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 30px 60px -30px rgba(99,102,241,.75)}
+.hero-card::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;
+  background:rgba(255,255,255,.13);top:-140px;right:-90px}
+.hero-card::after{content:'';position:absolute;width:230px;height:230px;border-radius:50%;
+  background:rgba(255,255,255,.09);bottom:-120px;left:-70px}
+.hero-card > *{position:relative;z-index:2}
+.pill{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.06em;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);
+  padding:6px 15px;border-radius:999px;margin-bottom:18px;backdrop-filter:blur(4px)}
+.hero-card h1{font-size:clamp(1.8rem,5vw,2.9rem);line-height:1.14;letter-spacing:-.035em;
+  font-weight:800;margin-bottom:16px;max-width:760px}
+.hero-card p.lead{font-size:clamp(.95rem,2vw,1.06rem);opacity:.94;max-width:620px;margin-bottom:26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- BUTTONS ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-weight:700;font-size:.9rem;
+  border:none;cursor:pointer;text-decoration:none;transition:.22s;font-family:inherit}
+.btn-light{background:#fff;color:var(--primary-dark)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.55)}
+.btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-ghost:hover{background:rgba(255,255,255,.28)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--ink-2);border:1.5px solid var(--line)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.btn-sm{padding:9px 18px;font-size:.83rem}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+/* ---------- GRIDS ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+
+/* ---------- GOAL CARD ---------- */
+.goal{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;
+  box-shadow:var(--shadow);transition:.25s}
+.goal:hover{transform:translateY(-4px);border-color:#c7d2fe}
+.goal .num{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  font-weight:800;color:#fff;font-size:.9rem;margin-bottom:14px}
+.goal:nth-child(1) .num{background:linear-gradient(135deg,#6366f1,#818cf8)}
+.goal:nth-child(2) .num{background:linear-gradient(135deg,#06b6d4,#22d3ee)}
+.goal:nth-child(3) .num{background:linear-gradient(135deg,#ec4899,#f472b6)}
+.goal h3{font-size:1rem;margin-bottom:6px;letter-spacing:-.01em}
+.goal p{font-size:.87rem;color:var(--muted)}
+
+/* ---------- TABS ---------- */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  color:var(--muted);font-weight:700;font-size:.84rem;cursor:pointer;white-space:nowrap;
+  font-family:inherit;transition:.2s}
+.tab:hover{border-color:#c7d2fe;color:var(--primary)}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel{display:none}
+.panel.active{display:block;animation:fadeUp .35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- MATERI CONTENT ---------- */
+.materi-h{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.materi-sub{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.formula{background:#0f172a;color:#e2e8f0;border-radius:14px;padding:14px 18px;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:.87rem;
+  overflow-x:auto;margin:12px 0;line-height:1.9;white-space:nowrap}
+.formula b{color:#a5b4fc}
+.formula i{color:#f9a8d4;font-style:normal}
+.formula em{color:#67e8f9;font-style:normal}
+.note{border-left:4px solid var(--primary);background:#eef2ff;border-radius:0 12px 12px 0;
+  padding:14px 18px;font-size:.88rem;color:var(--ink-2);margin:14px 0}
+.note.warn{border-color:var(--warn);background:#fffbeb}
+.note.ok{border-color:var(--ok);background:#ecfdf5}
+ul.tick{list-style:none;display:grid;gap:9px;margin:12px 0}
+ul.tick li{position:relative;padding-left:28px;font-size:.9rem;color:var(--ink-2)}
+ul.tick li::before{content:'✓';position:absolute;left:0;top:0;width:19px;height:19px;
+  border-radius:6px;background:#dcfce7;color:#15803d;font-size:.7rem;font-weight:800;
+  display:grid;place-items:center;margin-top:3px}
+
+/* ---------- VERB EXPLORER ---------- */
+.verb-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.search{flex:1;min-width:180px;padding:11px 16px;border-radius:12px;border:1.5px solid var(--line);
+  font-family:inherit;font-size:.88rem;outline:none;transition:.2s;background:#fff}
+.search:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+.chip-row{display:flex;gap:7px;flex-wrap:wrap}
+.chip{padding:8px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit;transition:.2s}
+.chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.verb-scroll{max-height:380px;overflow-y:auto;border-radius:14px;border:1px solid var(--line)}
+.verb-table{width:100%;border-collapse:collapse;font-size:.87rem}
+.verb-table th{position:sticky;top:0;background:#f1f5f9;text-align:left;padding:11px 14px;
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);z-index:2}
+.verb-table td{padding:10px 14px;border-top:1px solid var(--line)}
+.verb-table tr:hover td{background:#fafbff}
+.tag{font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.03em}
+.tag.reg{background:#dbeafe;color:#1d4ed8}
+.tag.irr{background:#fce7f3;color:#be185d}
+
+/* ---------- LATIHAN ---------- */
+.arr-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;
+  margin-bottom:14px;box-shadow:var(--shadow)}
+.arr-q{font-size:.86rem;font-weight:700;color:var(--muted);margin-bottom:12px}
+.pool,.answer-box{display:flex;flex-wrap:wrap;gap:8px;min-height:54px;padding:12px;
+  border-radius:14px;transition:.2s}
+.pool{background:#f1f5f9;margin-bottom:12px}
+.answer-box{background:#fafbff;border:2px dashed #cbd5e1}
+.answer-box.filled{border-color:#a5b4fc}
+.answer-box.correct{background:#ecfdf5;border-color:var(--ok);border-style:solid}
+.answer-box.wrong{background:#fef2f2;border-color:var(--err);border-style:solid}
+.word{padding:8px 15px;border-radius:11px;background:#fff;border:1.5px solid var(--line);
+  font-size:.87rem;font-weight:700;color:var(--ink-2);cursor:pointer;font-family:inherit;
+  transition:.18s;user-select:none}
+.word:hover{transform:translateY(-2px);border-color:var(--primary);color:var(--primary)}
+.answer-box .word{background:var(--primary);color:#fff;border-color:var(--primary)}
+.answer-box .word:hover{background:var(--err);border-color:var(--err);color:#fff}
+.arr-feedback{font-size:.85rem;font-weight:700;margin-top:11px;display:none}
+.arr-feedback.show{display:block}
+.arr-feedback.good{color:#15803d}
+.arr-feedback.bad{color:var(--err)}
+
+/* ---------- QUIZ ---------- */
+.q-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;
+  margin-bottom:14px;box-shadow:var(--shadow)}
+.q-num{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  color:var(--primary);background:#eef2ff;padding:4px 12px;border-radius:999px;margin-bottom:12px}
+.q-text{font-size:.98rem;font-weight:700;margin-bottom:16px;line-height:1.55}
+.opts{display:grid;gap:9px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:13px 16px;border-radius:13px;border:1.5px solid var(--line);background:#fff;
+  font-family:inherit;font-size:.9rem;color:var(--ink-2);cursor:pointer;transition:.18s}
+.opt:hover:not(:disabled){border-color:var(--primary);background:#f5f6ff}
+.opt:disabled{cursor:default}
+.opt .letter{width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:#f1f5f9;
+  display:grid;place-items:center;font-weight:800;font-size:.76rem;color:var(--muted)}
+.opt.correct{border-color:var(--ok);background:#ecfdf5}
+.opt.correct .letter{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--err);background:#fef2f2}
+.opt.wrong .letter{background:var(--err);color:#fff}
+.explain{margin-top:13px;padding:13px 16px;border-radius:12px;font-size:.85rem;
+  background:#f8fafc;border-left:4px solid var(--primary);color:var(--ink-2);display:none}
+.explain.show{display:block;animation:fadeUp .3s ease}
+.score-box{background:linear-gradient(135deg,#0f172a,#312e81);color:#fff;border-radius:20px;
+  padding:28px;text-align:center;margin-top:20px;display:none}
+.score-box.show{display:block;animation:fadeUp .4s ease}
+.score-big{font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;
+  background:linear-gradient(135deg,#a5b4fc,#f9a8d4);-webkit-background-clip:text;
+  background-clip:text;-webkit-text-fill-color:transparent}
+.score-msg{margin-top:8px;opacity:.9;font-size:.92rem}
+
+/* ---------- WRITING ---------- */
+textarea{width:100%;min-height:190px;padding:16px;border-radius:14px;border:1.5px solid var(--line);
+  font-family:inherit;font-size:.92rem;line-height:1.75;resize:vertical;outline:none;transition:.2s}
+textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+.meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);
+  margin-top:10px;font-weight:600}
+.check-list{display:grid;gap:9px;margin-top:18px}
+.check{display:flex;gap:11px;align-items:flex-start;padding:12px 15px;border-radius:12px;
+  font-size:.86rem;border:1px solid var(--line);background:#fff}
+.check .ic{width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:grid;place-items:center;
+  font-size:.68rem;font-weight:800;color:#fff;margin-top:2px}
+.check.pass{border-color:#a7f3d0;background:#f0fdf9}
+.check.pass .ic{background:var(--ok)}
+.check.fail{border-color:#fecaca;background:#fff5f5}
+.check.fail .ic{background:var(--err)}
+.check.pending{border-color:var(--line);background:#f8fafc;color:var(--muted)}
+.check.pending .ic{background:#cbd5e1}
+
+/* ---------- RUBRIC ---------- */
+.rubric{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:12px;
+  border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.rubric th{background:#0f172a;color:#fff;padding:12px;text-align:left;font-size:.73rem;
+  text-transform:uppercase;letter-spacing:.06em}
+.rubric td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.rubric tr:nth-child(even) td{background:#fafbff}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(20px);transition:.65s cubic-bezier(.2,.7,.3,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* ---------- FOOTER ---------- */
+footer{max-width:1080px;margin:0 auto;padding:36px 20px 56px;text-align:center;
+  color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+footer b{color:var(--ink-2)}
+
+@media (max-width:640px){
+  section{padding:40px 16px}
+  .nav-inner{padding:10px 14px}
+  .brand span.t{display:none}
+  .card{padding:18px}
+  .hero-card{border-radius:22px}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot">SP</span><span class="t">Simple Past Tense</span></div>
+    <div class="nav-links">
+      <a href="#beranda" class="active">Beranda</a>
+      <a href="#materi">Materi</a>
+      <a href="#latihan">Latihan</a>
+      <a href="#kuis">Kuis</a>
+      <a href="#tugas">Tugas</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ BERANDA ============ -->
+<section id="beranda">
+  <div class="hero-card reveal">
+    <span class="pill">Bahasa Inggris · Kelas XI · SMA Negeri 1 Jember</span>
+    <h1>Kuasai Simple Past Tense dengan cara yang seru.</h1>
+    <p class="lead">E-module interaktif ini membantumu memahami, melatih, dan memakai Simple Past Tense
+      untuk bercerita tentang pengalaman masa lalu — tanpa tumpukan PDF yang membosankan.</p>
+    <div class="hero-actions">
+      <a href="#materi" class="btn btn-light">Mulai Belajar →</a>
+      <a href="#kuis" class="btn btn-ghost">Coba Kuis Dulu</a>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="goal reveal">
+      <div class="num">1</div>
+      <h3>Memahami</h3>
+      <p>Mengidentifikasi rumus, fungsi sosial, serta perbedaan Regular dan Irregular Verbs dalam teks Recount.</p>
+    </div>
+    <div class="goal reveal">
+      <div class="num">2</div>
+      <h3>Menerapkan</h3>
+      <p>Melengkapi kalimat rumpang dan menyusun kalimat Simple Past Tense (positif, negatif, tanya) dengan akurat.</p>
+    </div>
+    <div class="goal reveal">
+      <div class="num">3</div>
+      <h3>Membuat</h3>
+      <p>Menulis satu paragraf Personal Recount pendek menggunakan struktur Simple Past Tense yang benar.</p>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:22px">
+    <h2 class="materi-h">Cara pakai modul ini</h2>
+    <p class="materi-sub">Ikuti alurnya dari atas ke bawah — setiap tahap saling melengkapi.</p>
+    <ul class="tick">
+      <li><b>Materi</b> — baca 5 tab materi, mulai dari konsep dasar sampai menulis paragraf.</li>
+      <li><b>Latihan</b> — susun kata acak menjadi kalimat yang benar.</li>
+      <li><b>Kuis</b> — 5 soal pilihan ganda dengan pembahasan otomatis dan skor instan.</li>
+      <li><b>Tugas</b> — tulis Personal Recount-mu, lalu periksa dengan pengecek mandiri.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ MATERI ============ -->
+<section id="materi">
+  <span class="eyebrow">Tahap 1</span>
+  <h2 class="sec">Materi Pembelajaran</h2>
+  <p class="sec-desc">Lima bagian materi tersusun dari yang paling sederhana sampai yang paling produktif.</p>
+
+  <div class="tabs" data-group="materi">
+    <button class="tab active" data-group="materi" data-tab="1">1 · Fungsi &amp; Penanda Waktu</button>
+    <button class="tab" data-group="materi" data-tab="2">2 · Regular vs Irregular</button>
+    <button class="tab" data-group="materi" data-tab="3">3 · Kalimat Verbal</button>
+    <button class="tab" data-group="materi" data-tab="4">4 · Kalimat Nominal</button>
+    <button class="tab" data-group="materi" data-tab="5">5 · Personal Recount</button>
+  </div>
+
+  <!-- PANEL 1 -->
+  <div class="panel active" data-group="materi" data-panel="1">
+    <div class="card">
+      <h3 class="materi-h">Apa itu Simple Past Tense?</h3>
+      <p class="materi-sub">Tenses yang dipakai untuk menyatakan kejadian yang <b>sudah selesai</b> di masa lampau.</p>
+
+      <p style="font-size:.92rem;color:var(--ink-2)">Simple Past Tense digunakan ketika kita membicarakan
+        suatu tindakan atau keadaan yang terjadi dan berakhir pada waktu tertentu di masa lalu.
+        Waktunya bisa disebutkan secara jelas, bisa juga sudah dipahami dari konteks.</p>
+
+      <div class="note">
+        <b>Fungsi sosial:</b> menceritakan pengalaman pribadi, menulis teks recount, melaporkan kejadian
+        yang sudah berlalu, dan menulis biografi.
+      </div>
+
+      <h4 style="font-size:.95rem;margin:20px 0 8px">Penanda waktu (Time Signals)</h4>
+      <div class="chip-row">
+        <span class="chip active">yesterday</span>
+        <span class="chip active">last week</span>
+        <span class="chip active">last night</span>
+        <span class="chip active">two days ago</span>
+        <span class="chip active">in 2020</span>
+        <span class="chip active">when I was a child</span>
+        <span class="chip active">that day</span>
+      </div>
+
+      <div class="note warn" style="margin-top:18px">
+        ⚠️ Kalau tidak ada penanda waktu yang jelas, pastikan konteks kalimat memang menunjukkan
+        kejadian lampau — bukan kebiasaan yang masih berlangsung.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2 -->
+  <div class="panel" data-group="materi" data-panel="2">
+    <div class="card">
+      <h3 class="materi-h">Regular vs Irregular Verbs</h3>
+      <p class="materi-sub">Kata kerja bentuk kedua (Verb 2) dibagi menjadi dua kelompok besar.</p>
+
+      <div class="grid-2">
+        <div style="background:#eff6ff;border-radius:14px;padding:18px">
+          <span class="tag reg">REGULAR</span>
+          <p style="font-size:.87rem;margin-top:10px;color:var(--ink-2)">
+            Dibentuk dengan menambahkan <b>-ed</b> / <b>-d</b> pada bentuk dasar.</p>
+          <div class="formula">play → play<b>ed</b><br>watch → watch<b>ed</b><br>study → stud<b>ied</b><br>stop → stopp<b>ed</b></div>
+        </div>
+        <div style="background:#fdf2f8;border-radius:14px;padding:18px">
+          <span class="tag irr">IRREGULAR</span>
+          <p style="font-size:.87rem;margin-top:10px;color:var(--ink-2)">
+            Bentuknya berubah tidak beraturan dan harus dihafalkan.</p>
+          <div class="formula">go → <i>went</i><br>eat → <i>ate</i><br>buy → <i>bought</i><br>see → <i>saw</i></div>
+        </div>
+      </div>
+
+      <div class="note ok" style="margin-top:18px">
+        💡 <b>Tips:</b> gunakan kolom pencarian di bawah untuk mencari kata kerja dengan cepat,
+        lalu filter berdasarkan jenisnya.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="materi-h">Kamus Kata Kerja Interaktif</h3>
+      <p class="materi-sub">Cari kata kerja, lihat bentuk keduanya, dan perhatikan jenisnya.</p>
+      <div class="verb-tools">
+        <input class="search" id="verbSearch" type="search" placeholder="Cari kata kerja… (mis. go, makan, study)">
+        <div class="chip-row">
+          <button class="chip active" data-filter="all">Semua</button>
+          <button class="chip" data-filter="reg">Regular</button>
+          <button class="chip" data-filter="irr">Irregular</button>
+        </div>
+      </div>
+      <div class="verb-scroll">
+        <table class="verb-table">
+          <thead>
+            <tr><th>Verb 1</th><th>Verb 2</th><th>Arti</th><th>Jenis</th></tr>
+          </thead>
+          <tbody id="verbBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3 -->
+  <div class="panel" data-group="materi" data-panel="3">
+    <div class="card">
+      <h3 class="materi-h">Kalimat Verbal</h3>
+      <p class="materi-sub">Kalimat yang predikatnya berupa kata kerja (verb).</p>
+
+      <h4 style="font-size:.92rem;margin:16px 0 4px">✅ Positif (+)</h4>
+      <div class="formula">Subject + <i>Verb 2</i> + Object/Complement</div>
+      <p style="font-size:.88rem;color:var(--muted)">She <b>watched</b> a movie last night.</p>
+
+      <h4 style="font-size:.92rem;margin:22px 0 4px">❌ Negatif (−)</h4>
+      <div class="formula">Subject + <b>did not / didn't</b> + <em>Verb 1</em> + Object</div>
+      <p style="font-size:.88rem;color:var(--muted)">She <b>did not watch</b> a movie last night.</p>
+
+      <h4 style="font-size:.92rem;margin:22px 0 4px">❓ Tanya (?)</h4>
+      <div class="formula"><b>Did</b> + Subject + <em>Verb 1</em> + Object ?</div>
+      <p style="font-size:.88rem;color:var(--muted)"><b>Did</b> she <b>watch</b> a movie last night?</p>
+
+      <div class="note warn" style="margin-top:20px">
+        ⚠️ <b>Kesalahan paling umum:</b> setelah <b>did / did not</b>, kata kerja kembali ke
+        <b>bentuk dasar (Verb 1)</b>. Bukan <em>“did not went”</em>, melainkan
+        <b>“did not go”</b>.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 4 -->
+  <div class="panel" data-group="materi" data-panel="4">
+    <div class="card">
+      <h3 class="materi-h">Kalimat Nominal</h3>
+      <p class="materi-sub">Kalimat yang predikatnya bukan kata kerja, melainkan kata sifat, kata benda, atau keterangan.</p>
+
+      <h4 style="font-size:.92rem;margin:16px 0 4px">✅ Positif (+)</h4>
+      <div class="formula">Subject + <b>was / were</b> + Complement</div>
+      <p style="font-size:.88rem;color:var(--muted)">They <b>were</b> very happy two days ago.</p>
+
+      <h4 style="font-size:.92rem;margin:22px 0 4px">❌ Negatif (−)</h4>
+      <div class="formula">Subject + <b>was not / were not</b> + Complement</div>
+      <p style="font-size:.88rem;color:var(--muted)">They <b>were not</b> happy two days ago.</p>
+
+      <h4 style="font-size:.92rem;margin:22px 0 4px">❓ Tanya (?)</h4>
+      <div class="formula"><b>Was / Were</b> + Subject + Complement ?</div>
+      <p style="font-size:.88rem;color:var(--muted)"><b>Were</b> they happy two days ago?</p>
+
+      <div class="grid-2" style="margin-top:20px">
+        <div style="background:#eef2ff;border-radius:14px;padding:16px">
+          <b style="font-size:.9rem">WAS</b>
+          <p style="font-size:.85rem;color:var(--ink-2);margin-top:6px">
+            I · He · She · It · nama orang tunggal</p>
+        </div>
+        <div style="background:#fdf2f8;border-radius:14px;padding:16px">
+          <b style="font-size:.9rem">WERE</b>
+          <p style="font-size:.85rem;color:var(--ink-2);margin-top:6px">
+            You · We · They · nama orang jamak</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 5 -->
+  <div class="panel" data-group="materi" data-panel="5">
+    <div class="card">
+      <h3 class="materi-h">Personal Recount Text</h3>
+      <p class="materi-sub">Teks yang menceritakan kembali pengalaman pribadi secara kronologis.</p>
+
+      <h4 style="font-size:.92rem;margin:16px 0 8px">Struktur Teks</h4>
+      <ul class="tick">
+        <li><b>Orientation</b> — siapa, kapan, di mana peristiwa terjadi.</li>
+        <li><b>Events</b> — rangkaian kejadian yang diceritakan berurutan.</li>
+        <li><b>Reorientation</b> — komentar atau kesan penulis di akhir cerita.</li>
+      </ul>
+
+      <h4 style="font-size:.92rem;margin:22px 0 8px">Ciri Kebahasaan</h4>
+      <ul class="tick">
+        <li>Menggunakan Simple Past Tense secara konsisten.</li>
+        <li>Banyak menggunakan <i>action verbs</i> bentuk lampau (went, took, bought).</li>
+        <li>Menggunakan kata sambung waktu: <i>then, after that, finally, suddenly</i>.</li>
+        <li>Menggunakan kata ganti orang pertama (I, we).</li>
+      </ul>
+
+      <div class="note ok" style="margin-top:20px">
+        <b>Contoh paragraf:</b><br>
+        <em>Last holiday, my family and I <b>went</b> to Bali. We <b>stayed</b> there for four days.
+        On the first day, we <b>visited</b> Kuta Beach and <b>watched</b> the sunset.
+        Then, we <b>ate</b> local seafood at a small restaurant near the beach.
+        I <b>bought</b> some souvenirs for my friends. Finally, we <b>flew</b> home with
+        unforgettable memories. It <b>was</b> the best holiday I have ever had.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LATIHAN ============ -->
+<section id="latihan">
+  <span class="eyebrow">Tahap 2</span>
+  <h2 class="sec">Latihan: Susun Kata</h2>
+  <p class="sec-desc">Klik kata di kotak abu-abu untuk menyusun kalimat. Klik kata di kotak jawaban untuk mengembalikannya.</p>
+
+  <div id="arrangeList"></div>
+
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+    <div>
+      <div style="font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Skor Latihan</div>
+      <div style="font-size:1.6rem;font-weight:800;letter-spacing:-.03em" id="arrScore">0 / 4</div>
+    </div>
+    <button class="btn btn-outline btn-sm" id="arrReset">Ulangi Semua</button>
+  </div>
+</section>
+
+<!-- ============ KUIS ============ -->
+<section id="kuis">
+  <span class="eyebrow">Tahap 3</span>
+  <h2 class="sec">Kuis Interaktif</h2>
+  <p class="sec-desc">5 soal pilihan ganda. Pilih satu jawaban — pembahasan langsung muncul setelahnya.</p>
+
+  <div id="quizList"></div>
+
+  <div class="score-box" id="scoreBox">
+    <div class="score-big" id="scoreNum">0</div>
+    <div class="score-msg" id="scoreMsg"></div>
+    <button class="btn btn-light btn-sm" id="quizReset" style="margin-top:18px">Kerjakan Ulang</button>
+  </div>
+</section>
+
+<!-- ============ TUGAS ============ -->
+<section id="tugas">
+  <span class="eyebrow">Tahap 4</span>
+  <h2 class="sec">Tugas Menulis: Personal Recount</h2>
+  <p class="sec-desc">Tulis 5–7 kalimat tentang pengalaman pribadimu yang tidak terlupakan. Gunakan Simple Past Tense.</p>
+
+  <div class="card">
+    <label for="essay" style="font-size:.85rem;font-weight:800;color:var(--ink-2)">
+      Tulisanmu
+    </label>
+    <textarea id="essay" style="margin-top:10px"
+      placeholder="Last holiday, I went to ..."></textarea>
+    <div class="meta-row">
+      <span id="wordCount">0 kata</span>
+      <span id="sentCount">0 kalimat</span>
+      <span id="charCount">0 karakter</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <button class="btn btn-primary btn-sm" id="checkEssay">Periksa Tulisan</button>
+      <button class="btn btn-outline btn-sm" id="clearEssay">Hapus</button>
+    </div>
+
+    <div class="check-list" id="checkList">
+      <div class="check pending"><span class="ic">·</span><span>Tulis dulu paragrafmu, lalu klik <b>Periksa Tulisan</b>.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="materi-h">Rubrik Penilaian</h3>
+    <p class="materi-sub">Gunakan rubrik ini untuk mengevaluasi tulisanmu sendiri sebelum dikumpulkan.</p>
+    <div style="overflow-x:auto">
+      <table class="rubric">
+        <thead>
+          <tr>
+            <th>Kriteria</th>
+            <th>Skor 4 — Sangat Baik</th>
+            <th>Skor 3 — Baik</th>
+            <th>Skor 2 — Cukup</th>
+            <th>Skor 1 — Kurang</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Tata Bahasa</b><br>(Grammar Accuracy)</td>
+            <td>Tidak ada kesalahan dalam penggunaan Simple Past Tense. Kalimat terstruktur sempurna.</td>
+            <td>Terdapat 1–2 kesalahan kecil namun tidak mengganggu makna kalimat secara keseluruhan.</td>
+            <td>Terdapat 3–4 kesalahan dalam penggunaan tata bahasa lampau. Struktur kalimat sering kali keliru.</td>
+            <td>Banyak sekali kesalahan tata bahasa lampau (&gt;4 kesalahan), sehingga teks sangat sulit dipahami.</td>
+          </tr>
+          <tr>
+            <td><b>Kosa Kata</b><br>(Vocabulary Selection)</td>
+            <td>Pilihan kosakata sangat tepat, bervariasi, dan menggunakan kata kerja aksi lampau secara kontekstual.</td>
+            <td>Pilihan kosakata cukup baik dan bervariasi, walau ada beberapa penempatan kata kurang alami.</td>
+            <td>Kosa kata sangat terbatas dan monoton. Sering terjadi pengulangan kata kerja yang sama.</td>
+            <td>Pilihan kosakata sangat minim dan banyak ketidaktepatan penerjemahan kata dalam konteks kalimat lampau.</td>
+          </tr>
+          <tr>
+            <td><b>Kesesuaian Isi &amp; Struktur Teks</b></td>
+            <td>Isi tulisan sangat sesuai topik. Memiliki alur cerita kronologis yang runtut dan jelas (5–7 kalimat).</td>
+            <td>Isi tulisan sesuai topik. Alur cerita cukup runtut, namun panjang kalimat sedikit kurang.</td>
+            <td>Isi tulisan kurang fokus pada topik masa lalu. Alur cerita melompat-lompat dan membingungkan.</td>
+            <td>Isi tulisan tidak sesuai dengan topik yang diminta dan tidak membentuk alur cerita yang logis.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:18px">
+      <b>Perhitungan Skor Akhir:</b> Nilai = (Total Skor Perolehan ÷ 12) × 100
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>E-Module Interaktif · Simple Past Tense</b><br>
+  Disusun oleh Moh. Khoirul Huda · Sastra Inggris · UPBJJ Jember · Universitas Terbuka 2026
+</footer>
+
+<script>
+/* ============================================================
+   0. PROGRESS BAR + NAV AKTIF + REVEAL
+   ============================================================ */
+const progressBar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const max = el.scrollHeight - el.clientHeight;
+  progressBar.style.width = (max > 0 ? (el.scrollTop / max) * 100 : 0) + '%';
+}, { passive: true });
+
+const navLinks = [...document.querySelectorAll('.nav-links a')];
+const sections = [...document.querySelectorAll('section[id]')];
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(s => navObs.observe(s));
+
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('show'); revObs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ============================================================
+   1. TABS
+   ============================================================ */
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const group = tab.dataset.group;
+    document.querySelectorAll(`.tab[data-group="${group}"]`).forEach(t => t.classList.remove('active'));
+    document.querySelectorAll(`.panel[data-group="${group}"]`).forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const target = document.querySelector(`.panel[data-group="${group}"][data-panel="${tab.dataset.tab}"]`);
+    if (target) target.classList.add('active');
+  });
+});
+
+/* ============================================================
+   2. VERB EXPLORER
+   ============================================================ */
+const VERBS = [
+  ['play','played','bermain','reg'],
+  ['watch','watched','menonton','reg'],
+  ['visit','visited','mengunjungi','reg'],
+  ['study','studied','belajar','reg'],
+  ['clean','cleaned','membersihkan','reg'],
+  ['finish','finished','menyelesaikan','reg'],
+  ['cook','cooked','memasak','reg'],
+  ['travel','traveled','bepergian','reg'],
+  ['listen','listened','mendengarkan','reg'],
+  ['help','helped','menolong','reg'],
+  ['walk','walked','berjalan','reg'],
+  ['arrive','arrived','tiba','reg'],
+  ['go','went','pergi','irr'],
+  ['eat','ate','makan','irr'],
+  ['buy','bought','membeli','irr'],
+  ['see','saw','melihat','irr'],
+  ['take','took','mengambil','irr'],
+  ['write','wrote','menulis','irr'],
+  ['swim','swam','berenang','irr'],
+  ['meet','met','bertemu','irr'],
+  ['come','came','datang','irr'],
+  ['do','did','melakukan','irr'],
+  ['have','had','memiliki','irr'],
+  ['make','made','membuat','irr'],
+  ['read','read','membaca','irr'],
+  ['sleep','slept','tidur','irr'],
+  ['get','got','mendapat','irr'],
+  ['give','gave','memberi','irr'],
+  ['sing','sang','menyanyi','irr'],
+  ['drink','drank','minum','irr']
+];
+
+const verbBody = document.getElementById('verbBody');
+const verbSearch = document.getElementById('verbSearch');
+let verbFilter = 'all';
+
+function renderVerbs() {
+  const q = verbSearch.value.trim().toLowerCase();
+  const rows = VERBS.filter(v => {
+    const matchFilter = verbFilter === 'all' || v[3] === verbFilter;
+    const matchSearch = !q || v[0].includes(q) || v[1].includes(q) || v[2].includes(q);
+    return matchFilter && matchSearch;
+  });
+
+  if (!rows.length) {
+    verbBody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:26px;color:#94a3b8">Kata kerja tidak ditemukan.</td></tr>';
+    return;
+  }
+
+  verbBody.innerHTML = rows.map(v => `
+    <tr>
+      <td><b>${v[0]}</b></td>
+      <td style="color:#4f46e5;font-weight:700">${v[1]}</td>
+      <td style="color:#64748b">${v[2]}</td>
+      <td><span class="tag ${v[3]}">${v[3] === 'reg' ? 'REGULAR' : 'IRREGULAR'}</span></td>
+    </tr>`).join('');
+}
+verbSearch.addEventListener('input', renderVerbs);
+document.querySelectorAll('.chip[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.chip[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    verbFilter = btn.dataset.filter;
+    renderVerbs();
+  });
+});
+renderVerbs();
+
+/* ============================================================
+   3. LATIHAN SUSUN KATA
+   ============================================================ */
+const ARRANGE = [
+  { words: ['I','went','to','the','beach','yesterday'], answer: 'I went to the beach yesterday' },
+  { words: ['She','did','not','finish','her','homework'], answer: 'She did not finish her homework' },
+  { words: ['They','were','very','happy','last','night'], answer: 'They were very happy last night' },
+  { words: ['Did','you','watch','the','football','match'], answer: 'Did you watch the football match?' }
+];
+
+const arrangeList = document.getElementById('arrangeList');
+const arrScoreEl = document.getElementById('arrScore');
+let arrSolved = new Set();
+
+const normalize = s => s.toLowerCase().replace(/[.,!?]/g, '').replace(/\s+/g, ' ').trim();
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildArrange() {
+  arrSolved = new Set();
+  arrScoreEl.textContent = `0 / ${ARRANGE.length}`;
+  arrangeList.innerHTML = '';
+
+  ARRANGE.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'arr-item';
+    card.innerHTML = `
+      <div class="arr-q">Kalimat ${idx + 1}</div>
+      <div class="pool" data-pool="${idx}"></div>
+      <div class="answer-box" data-answer="${idx}"></div>
+      <div class="arr-feedback" data-fb="${idx}"></div>
+      <div style="margin-top:12px;display:flex;gap:9px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-sm" data-check="${idx}">Periksa</button>
+        <button class="btn btn-outline btn-sm" data-reset="${idx}">Acak Ulang</button>
+      </div>`;
+    arrangeList.appendChild(card);
+
+    fillPool(idx, shuffle(item.words));
+  });
+}
+
+function fillPool(idx, words) {
+  const pool = document.querySelector(`[data-pool="${idx}"]`);
+  const answer = document.querySelector(`[data-answer="${idx}"]`);
+  pool.innerHTML = '';
+  answer.innerHTML = '';
+  answer.className = 'answer-box';
+
+  words.forEach(w => {
+    const b = document.createElement('button');
+    b.className = 'word';
+    b.type = 'button';
+    b.textContent = w;
+    b.addEventListener('click', () => {
+      if (arrSolved.has(idx)) return;
+      answer.appendChild(b);
+      answer.classList.add('filled');
+      b.onclick = () => {
+        if (arrSolved.has(idx)) return;
+        pool.appendChild(b);
+        b.onclick = null;
+        b.addEventListener('click', () => moveToAnswer(b, idx));
+        if (!answer.children.length) answer.classList.remove('filled');
+      };
+    });
+    b.addEventListener('click', () => moveToAnswer(b, idx));
+    pool.appendChild(b);
+  });
+}
+
+function moveToAnswer(b, idx) {
+  if (arrSolved.has(idx)) return;
+  const answer = document.querySelector(`[data-answer="${idx}"]`);
+  answer.appendChild(b);
+  answer.classList.add('filled');
+  b.onclick = () => {
+    if (arrSolved.has(idx)) return;
+    const pool = document.querySelector(`[data-pool="${idx}"]`);
+    pool.appendChild(b);
+    b.onclick = () => moveToAnswer(b, idx);
+  };
+}
+
+arrangeList.addEventListener('click', (e) => {
+  const checkBtn = e.target.closest('[data-check]');
+  const resetBtn = e.target.closest('[data-reset]');
+
+  if (checkBtn) {
+    const idx = +checkBtn.dataset.check;
+    if (arrSolved.has(idx)) return;
+    const answer = document.querySelector(`[data-answer="${idx}"]`);
+    const fb = document.querySelector(`[data-fb="${idx}"]`);
+    const built = [...answer.children].map(c => c.textContent).join(' ');
+    const target = ARRANGE[idx].answer;
+
+    if (normalize(built) === normalize(target)) {
+      answer.classList.add('correct');
+      fb.className = 'arr-feedback show good';
+      fb.textContent = '✓ Tepat sekali! ' + target;
+      arrSolved.add(idx);
+      arrScoreEl.textContent = `${arrSolved.size} / ${ARRANGE.length}`;
+    } else {
+      answer.classList.add('wrong');
+      fb.className = 'arr-feedback show bad';
+      fb.textContent = '✗ Belum tepat. Coba periksa urutan subjek dan kata kerjanya.';
+    }
+  }
+
+  if (resetBtn) {
+    const idx = +resetBtn.dataset.reset;
+    arrSolved.delete(idx);
+    arrScoreEl.textContent = `${arrSolved.size} / ${ARRANGE.length}`;
+    document.querySelector(`[data-fb="${idx}"]`).className = 'arr-feedback';
+    fillPool(idx, shuffle(ARRANGE[idx].words));
+  }
+});
+
+document.getElementById('arrReset').addEventListener('click', buildArrange);
+buildArrange();
+
+/* ============================================================
+   4. KUIS
+   ============================================================ */
+const QUIZ = [
+  {
+    q: 'My family and I ___ to Bali island for vacation last month.',
+    opts: ['Go', 'Goes', 'Gone', 'Went', 'Walking'],
+    a: 3,
+    exp: '"Last month" menandakan kejadian lampau. "Go" adalah irregular verb: go – went – gone. Bentuk kedua (Verb 2) yang benar adalah "went".'
+  },
+  {
+    q: 'She did not ___ her English assignment yesterday evening because she was sick.',
+    opts: ['Finish', 'Finishes', 'Finished', 'Finishing', 'Has finished'],
+    a: 0,
+    exp: 'Setelah "did not", kata kerja harus kembali ke bentuk dasar (Verb 1). Jadi jawabannya "finish", bukan "finished".'
+  },
+  {
+    q: 'Mark: "Did you watch the football match last night?"<br>John: "No, I didn\'t. I ___ for my history examination."',
+    opts: ['Study', 'Studied', 'Am studying', 'Studies', 'Have studied'],
+    a: 1,
+    exp: 'Kalimat ini adalah kalimat positif lampau yang berdiri sendiri (bukan setelah "did"). Verb 2 dari "study" adalah "studied" (y → ied).'
+  },
+  {
+    q: 'We ___ very happy to meet our old elementary school teachers at the reunion two days ago.',
+    opts: ['Was', 'Were', 'Is', 'Are', 'Am'],
+    a: 1,
+    exp: 'Ini kalimat nominal lampau. Subjek "We" (jamak) menggunakan "were". Penanda waktunya "two days ago".'
+  },
+  {
+    q: 'Choose the correct negative sentence of Simple Past Tense below!',
+    opts: [
+      'They were not come to my house yesterday.',
+      'They did not came to my house yesterday.',
+      'They did not come to my house yesterday.',
+      'They does not come to my house yesterday.',
+      'They did not coming to my house yesterday.'
+    ],
+    a: 2,
+    exp: 'Rumus negatif verbal: Subject + did not + Verb 1. Jadi "They did not come to my house yesterday" adalah satu-satunya yang benar.'
+  }
+];
+
+const quizList = document.getElementById('quizList');
+const scoreBox = document.getElementById('scoreBox');
+const scoreNum = document.getElementById('scoreNum');
+const scoreMsg = document.getElementById('scoreMsg');
+let quizCorrect = 0;
+let quizAnswered = 0;
+const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+
+function buildQuiz() {
+  quizCorrect = 0;
+  quizAnswered = 0;
+  scoreBox.classList.remove('show');
+  quizList.innerHTML = '';
+
+  QUIZ.forEach((item, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.innerHTML = `
+      <span class="q-num">SOAL ${i + 1} DARI ${QUIZ.length}</span>
+      <div class="q-text">${item.q}</div>
+      <div class="opts" data-opts="${i}">
+        ${item.opts.map((o, j) => `
+          <button class="opt" type="button" data-q="${i}" data-o="${j}">
+            <span class="letter">${LETTERS[j]}</span><span>${o}</span>
+          </button>`).join('')}
+      </div>
+      <div class="explain" data-exp="${i}"></div>`;
+    quizList.appendChild(card);
+  });
+}
+
+quizList.addEventListener('click', (e) => {
+  const btn = e.target.closest('.opt');
+  if (!btn || btn.disabled) return;
+
+  const qi = +btn.dataset.q;
+  const oi = +btn.dataset.o;
+  const item = QUIZ[qi];
+  const wrap = document.querySelector(`[data-opts="${qi}"]`);
+  const buttons = [...wrap.querySelectorAll('.opt')];
+
+  buttons.forEach(b => {
+    b.disabled = true;
+    if (+b.dataset.o === item.a) b.classList.add('correct');
+  });
+  if (oi !== item.a) btn.classList.add('wrong');
+
+  const exp = document.querySelector(`[data-exp="${qi}"]`);
+  exp.innerHTML = `<b>${oi === item.a ? '✅ Benar!' : '❌ Belum tepat.'}</b> ${item.exp}`;
+  exp.classList.add('show');
+
+  if (oi === item.a) quizCorrect++;
+  quizAnswered++;
+
+  if (quizAnswered === QUIZ.length) {
+    const finalScore = quizCorrect * 20;
+    scoreNum.textContent = finalScore;
+    let msg = '';
+    if (finalScore === 100) msg = 'Sempurna! Kamu sudah sangat menguasai Simple Past Tense. 🎉';
+    else if (finalScore >= 80) msg = 'Hebat! Sedikit lagi menuju sempurna. 💪';
+    else if (finalScore >= 60) msg = 'Bagus! Ulangi bagian materi yang masih sulit, ya.';
+    else msg = 'Jangan menyerah — baca kembali tab Kalimat Verbal & Nominal, lalu coba lagi.';
+    scoreMsg.textContent = msg;
+    scoreBox.classList.add('show');
+    scoreBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
+
+document.getElementById('quizReset').addEventListener('click', buildQuiz);
+buildQuiz();
+
+/* ============================================================
+   5. TUGAS MENULIS + PENGECEK MANDIRI
+   ============================================================ */
+const essay = document.getElementById('essay');
+const wordCountEl = document.getElementById('wordCount');
+const sentCountEl = document.getElementById('sentCount');
+const charCountEl = document.getElementById('charCount');
+const checkList = document.getElementById('checkList');
+
+const PAST_IRREGULAR = ['went','ate','saw','bought','took','made','came','got','gave','had','was','were','did','said','told','thought','found','felt','left','wrote','read','slept','swam','met','ran','sang','drank','drove','flew','began','brought','caught','chose','forgot','heard','kept','knew','lost','paid','sent','sat','spoke','spent','stood','taught','understood','wore','won','broke','built','drew','rode','sold','showed','threw','grew','fell'];
+
+const BASE_VERBS = ['go','eat','see','buy','take','make','come','get','give','have','do','write','read','sleep','swim','meet','run','sing','drink','drive','fly','bring','think','tell','say','find','feel','leave','keep','know','lose','pay','send','sit','speak','spend','stand','teach','wear','win','break','build','draw','hear','hold','hurt','mean','put','ride','sell','show','shut','begin','forget','choose','fall','grow','throw','understand'];
+
+const TIME_MARKERS = /\b(yesterday|last\s+(night|week|month|year|summer|holiday|weekend)|ago|when\s+i\s+was|in\s+(19|20)\d{2}|that\s+day|once|one\s+day|at\s+that\s+time)\b/i;
+
+function updateMeta() {
+  const text = essay.value.trim();
+  const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+  const sentences = text ? text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean).length : 0;
+  wordCountEl.textContent = words + ' kata';
+  sentCountEl.textContent = sentences + ' kalimat';
+  charCountEl.textContent = text.length + ' karakter';
+}
+
+essay.addEventListener('input', () => {
+  updateMeta();
+  try { localStorage.setItem('spt_essay', essay.value); } catch (e) {}
+});
+
+try {
+  const saved = localStorage.getItem('spt_essay');
+  if (saved) { essay.value = saved; updateMeta(); }
+} catch (e) { updateMeta(); }
+
+function addCheck(list, pass, text) {
+  const div = document.createElement('div');
+  div.className = 'check ' + (pass ? 'pass' : 'fail');
+  div.innerHTML = `<span class="ic">${pass ? '✓' : '!'}</span><span>${text}</span>`;
+  list.appendChild(div);
+}
+
+document.getElementById('checkEssay').addEventListener('click', () => {
+  const raw = essay.value.trim();
+  checkList.innerHTML = '';
+
+  if (!raw) {
+    checkList.innerHTML = '<div class="check pending"><span class="ic">·</span><span>Tulisanmu masih kosong. Yuk mulai menulis!</span></div>';
+    return;
+  }
+
+  const words = raw.split(/\s+/).filter(Boolean);
+  const sentences = raw.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+  const lower = raw.toLowerCase();
+
+  // 1. Panjang tulisan
+  addCheck(checkList, words.length >= 35,
+    `Panjang tulisan: <b>${words.length} kata</b> ${words.length >= 35 ? '(sudah memadai)' : '(disarankan minimal ±35 kata untuk 5–7 kalimat)'}`);
+
+  // 2. Jumlah kalimat
+  addCheck(checkList, sentences.length >= 5 && sentences.length <= 9,
+    `Jumlah kalimat: <b>${sentences.length}</b> — target 5–7 kalimat`);
+
+  // 3. Penanda waktu lampau
+  addCheck(checkList, TIME_MARKERS.test(lower),
+    'Terdapat penanda waktu lampau (mis. <i>yesterday, last week, two days ago</i>)');
+
+  // 4. Kata kerja lampau
+  const hasIrregular = PAST_IRREGULAR.some(v => new RegExp('\\b' + v + '\\b', 'i').test(lower));
+  const hasRegular = /\b\w{3,}ed\b/i.test(lower);
+  addCheck(checkList, hasIrregular || hasRegular,
+    'Menggunakan kata kerja bentuk kedua (Verb 2) — baik regular (<i>-ed</i>) maupun irregular');
+
+  // 5. Kesalahan: did + Verb 2
+  let didError = false;
+  const didMatches = lower.matchAll(/\b(?:did|didn'?t)\s+([a-z]+)/g);
+  for (const m of didMatches) {
+    if (PAST_IRREGULAR.includes(m[1]) || /\w{3,}ed$/.test(m[1])) { didError = true; break; }
+  }
+  addCheck(checkList, !didError,
+    didError
+      ? 'Ditemukan kesalahan: setelah <b>did / did not</b> harus memakai <b>Verb 1</b>, bukan Verb 2 (contoh salah: “did not went”)'
+      : 'Tidak ditemukan kesalahan “did + Verb 2” ✔');
+
+  // 6. Kesalahan: was/were + Verb 1
+  let beError = false;
+  const beMatches = lower.matchAll(/\b(?:was|were)\s+([a-z]+)/g);
+  for (const m of beMatches) {
+    if (BASE_VERBS.includes(m[1])) { beError = true; break; }
+  }
+  addCheck(checkList, !beError,
+    beError
+      ? 'Ditemukan kesalahan: <b>was/were</b> tidak boleh diikuti kata kerja dasar (contoh salah: “was go”)'
+      : 'Tidak ditemukan kesalahan “was/were + Verb 1” ✔');
+
+  // 7. Kata ganti orang pertama
+  addCheck(checkList, /\b(i|we|my|our|me|us)\b/i.test(lower),
+    'Menggunakan sudut pandang orang pertama (I / we / my / our) — ciri Personal Recount');
+
+  // Kesimpulan
+  const total = checkList.querySelectorAll('.check').length;
+  const pass = checkList.querySelectorAll('.check.pass').length;
+  const sum = document.createElement('div');
+  sum.className = 'note ' + (pass === total ? 'ok' : '');
+  sum.style.marginTop = '6px';
+  sum.innerHTML = pass === total
+    ? '<b>🎉 Luar biasa!</b> Semua pemeriksaan lolos. Tulisanmu siap dikumpulkan.'
+    : `<b>${pass} dari ${total}</b> pemeriksaan lolos. Perbaiki poin yang bertanda <b>!</b> lalu periksa kembali.`;
+  checkList.appendChild(sum);
+});
+
+document.getElementById('clearEssay').addEventListener('click', () => {
+  if (!confirm('Hapus seluruh tulisan?')) return;
+  essay.value = '';
+  updateMeta();
+  checkList.innerHTML = '<div class="check pending"><span class="ic">·</span><span>Tulis dulu paragrafmu, lalu klik <b>Periksa Tulisan</b>.</span></div>';
+  try { localStorage.removeItem('spt_essay'); } catch (e) {}
+});
+</script>
+</body>
+</html>
